@@ -8,17 +8,6 @@ module TimeZone exposing
 {-| This library provides time zone data from the `VERSION` release of the IANA
 Time Zone Database.
 
-This edition of `timezone-data` includes _all_ time zones found in [eggert/tz](https://github.com/eggert/tz).
-When duplicates are found between `Zone`s and `Link`s, the `Zone` is preferred.
-
-This edition aims to be maximally compatible with time zones returned by
-[Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/resolvedOptions#timezone),
-[which is how the Elm kernel retrieves the time zone](https://github.com/elm/time/blob/1.0.0/src/Elm/Kernel/Time.js#L44).
-
-Unless you know you need full support for one of the deprecated or removed
-zones from [eggert/tz](https://github.com/eggert/tz)'s `backward` or `backzone` files, you probably want
-[justinmimbs/timezone-data](https://package.elm-lang.org/packages/justinmimbs/timezone-data/latest/) instead of this package.
-
 @docs version
 
 
