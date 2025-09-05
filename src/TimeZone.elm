@@ -4560,7 +4560,8 @@ america__tijuana : () -> Time.Zone
 america__tijuana _ =
     fromSpecification <|
         Zone
-            [ ( ZoneState -480 (Rules rules_US), DateTime 1996 Jan 1 0 WallClock )
+            [ ( ZoneState -480 (Save 0), DateTime 1976 Jan 1 0 WallClock )
+            , ( ZoneState -480 (Rules rules_US), DateTime 1996 Jan 1 0 WallClock )
             , ( ZoneState -480 (Rules rules_Mexico), DateTime 2001 Jan 1 0 WallClock )
             , ( ZoneState -480 (Rules rules_US), DateTime 2002 Feb 20 0 WallClock )
             , ( ZoneState -480 (Rules rules_Mexico), DateTime 2010 Jan 1 0 WallClock )
