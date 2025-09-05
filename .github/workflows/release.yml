@@ -1,0 +1,50 @@
+name: Release on tz update
+on:
+  schedule:
+    - cron: "* 0 * * *"
+  workflow_dispatch:
+env:
+  FEED_URL: "https://github.com/eggert/tz/tags.atom"
+  FEED_FILE_PATH: "./tz-tags-feed.json"
+  STATE_FILE: ".github/.last_feed_timestamp"
+
+jobs:
+  update-on-new-tz-version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - name: Fetch feed
+        uses: Promptly-Technologies-LLC/rss-fetch-action@ecefea274f0618de6d45353cf9b73355873e89db # v2
+        with:
+          feed_url: ${{ env.FEED_URL }}
+          file_path: ${{ env.FEED_FILE_PATH }}
+      - name: Build if new
+        id: build
+        run: |
+          res="$(nix run .#check-feed -- "$FEED_FILE_PATH" "$STATE_FILE")"
+          new_file="$(echo "$res" | jq -r '.new_file')"
+          version="$(echo "$res" | jq -r '.version')"
+          timestamp="$(echo "$res" | jq -r '.timestamp')"
+          echo "is_new=$is_new" >> "$GITHUB_OUTPUT"
+          echo "tz_version=$version" >> "$GITHUB_OUTPUT"
+          echo "timestamp=$timestamp" >> "$GITHUB_OUTPUT"
+      - name: Commit update
+        if: ${{ steps.build.outputs.is_new == 'true' }}
+        uses: stefanzweifel/git-auto-commit-action@778341af668090896ca464160c2def5d1d1a3eb0 # v6
+        with:
+          commit_message: "feat: update to ${{ steps.build.outputs.tz_version }}"
+      - name: Bump
+        if: ${{ steps.build.outputs.is_new == 'true' }}
+        id: bump
+        run: |
+          nix develop --command bash -c 'echo "y" | elm bump'
+          echo "version=$(jq '.version' elm.json)" >> "$GITHUB_OUTPUT"
+      - name: Commit version bump
+        if: ${{ steps.build.outputs.is_new == 'true' }}
+        uses: stefanzweifel/git-auto-commit-action@778341af668090896ca464160c2def5d1d1a3eb0 # v6
+        with:
+          commit_message: "chore(release): ${{ steps.bump.outputs.version }}"
+          tagging_message: "v${{ steps.bump.outputs.version }}"
