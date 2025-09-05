@@ -15,7 +15,10 @@ PRIMARY_DATA = [
     "australasia",
     "europe",
     "northamerica",
-    "southamerica"
+    "southamerica",
+    "backzone",
+    "backward",
+    "etcetera",
 ]
 
 
@@ -421,7 +424,7 @@ def rulesetid_from_name(name):
 
 
 def zoneid_from_name(name):
-    return name.replace("/", "__").replace("-", "_").lower()
+    return name.replace("/", "__").replace("-", "_").replace("+", "_plus").lower()
 
 
 # templates
