@@ -2,7 +2,9 @@ import argparse
 import os
 import re
 import sys
+from copy import copy
 from datetime import date
+from typing import Any
 
 MIN_YEAR = 1970
 
@@ -314,6 +316,15 @@ def rulesetname_from_zonerules(zonerules):
     return zonerules[1] if zonerules[0] == "Rules" else None
 
 
+def deduplicate_links(zones: dict[str, Any], links: dict[str, Any]) -> dict[str, Any]:
+    res = copy(links)
+    duplicates = zones.keys() & links.keys()
+    print(duplicates)
+    for k in duplicates:
+        del res[k]
+    return res
+
+
 # PRINT
 
 
@@ -495,11 +506,17 @@ def main():
     links = {}
 
     for filename in PRIMARY_DATA:
-        a, b, c = parse_sourcefile(os.path.join(sourcedir, filename))
-        rulesets_, zones_, links_ = transform(zonenames, a, b, c)
+        parsed_rulesets, parsed_zones, parsed_links = parse_sourcefile(
+            os.path.join(sourcedir, filename)
+        )
+        rulesets_, zones_, links_ = transform(
+            zonenames, parsed_rulesets, parsed_zones, parsed_links
+        )
         rulesets.update(rulesets_)
         zones.update(zones_)
         links.update(links_)
+
+    links = deduplicate_links(zones, links)
 
     missingzones = zonenames - set(zones.keys())
     if missingzones:
