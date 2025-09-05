@@ -28,7 +28,7 @@ jobs:
       - name: Build if new
         id: build
         run: |
-          res="$(nix run .#check-feed -- "$FEED_FILE_PATH" "$STATE_FILE")"
+          res="$(nix run .#build-on-new-version -- "$FEED_FILE_PATH" "$STATE_FILE")"
           new_file="$(echo "$res" | jq -r '.new_file')"
           version="$(echo "$res" | jq -r '.version')"
           timestamp="$(echo "$res" | jq -r '.timestamp')"
