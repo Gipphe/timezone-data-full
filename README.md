@@ -8,15 +8,17 @@ This edition of `timezone-data` includes _all_ time zones found in [eggert/tz].
 When duplicates are found between `Zone`s and `Link`s, the `Zone` is preferred.
 
 This edition aims to be maximally compatible with time zones returned by
-[Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/resolvedOptions#timezone),
-[which is how the Elm kernel retrieves the time zone](https://github.com/elm/time/blob/1.0.0/src/Elm/Kernel/Time.js#L44).
+[Intl], [which is how the Elm kernel retrieves the time zone][elm-kernel-zone].
+
+Unless you know you need full support for one of the deprecated or removed
+zones from [eggert/tz]'s `backward` or `backzone` files, you probably want
+[justinmimbs/timezone-data] instead of this package.
 
 ## Installation
 
 ```sh
 elm install justinmimbs/timezone-data
 ```
-
 
 ## Examples
 
@@ -61,11 +63,9 @@ zone =
 Once evaluated, you should store the `Time.Zone` values you need in your model
 so that they don't need to be evaluated again.
 
-
 ## Alternatives
 
 Using this library to include all time zones in your compiled asset would increase its minified and gzipped size by about 18 KB. For a more lightweight approach to getting time zones into Elm, you may consider [fetching only the data you need at runtime][tzif]. And if your use case is taking UTC timestamps and displaying them nicely formatted in the client's local time, then you may look into custom elements, like Github's [`time-elements`][time-elements].
-
 
 [tzdb]: https://www.iana.org/time-zones
 [elmtime]: https://package.elm-lang.org/packages/elm/time/latest/
@@ -73,3 +73,6 @@ Using this library to include all time zones in your compiled asset would increa
 [tzif]: https://package.elm-lang.org/packages/justinmimbs/tzif/latest/
 [time-elements]: https://github.com/github/time-elements
 [eggert/tz]: https://github.com/eggert/tz
+[Intl]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/resolvedOptions#timezone
+[elm-kernel-zone]: https://github.com/elm/time/blob/1.0.0/src/Elm/Kernel/Time.js#L44
+[justinmimbs/timezone-data]: https://package.elm-lang.org/packages/justinmimbs/timezone-data/latest/

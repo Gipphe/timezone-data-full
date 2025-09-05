@@ -319,7 +319,6 @@ def rulesetname_from_zonerules(zonerules):
 def deduplicate_links(zones: dict[str, Any], links: dict[str, Any]) -> dict[str, Any]:
     res = copy(links)
     duplicates = zones.keys() & links.keys()
-    print(duplicates)
     for k in duplicates:
         del res[k]
     return res
