@@ -1,5 +1,4 @@
 import argparse
-import io
 import os
 import re
 import sys
@@ -30,37 +29,56 @@ indented_comment = re.compile(r"[\t ]+#")
 
 # zone table
 
+
 def parse_zonetable(filepath):
-    zonenames = set()
+    with open(filepath) as f:
+        zonenames = set()
+        for line in f.readlines():
+            if line[0] == "#":
+                continue
 
-    for line in open(filepath).readlines():
-        if line[0] == "#":
-            continue
-
-        fields = re.split(tabs_or_spaces, line.rstrip())
-        zonenames.add(fields[2])
-
-    return zonenames
+            fields = re.split(tabs_or_spaces, line.rstrip())
+            zonenames.add(fields[2])
+        return zonenames
 
 
 # source file
 
+
 def parse_sourcefile(filepath):
-    rulesets = {}
-    zones = {}
-    links = {}
-    parsing_zonename = None
+    with open(filepath) as f:
+        rulesets = {}
+        zones = {}
+        links = {}
+        parsing_zonename = None
+        for line in f.readlines():
+            if line[0] == "#" or indented_comment.match(line) is not None:
+                continue
 
-    for line in open(filepath).readlines():
-        if line[0] == "#" or indented_comment.match(line) is not None:
-            continue
+            line = line[0 : line.find("#")].rstrip()
+            fields = re.split(tabs_or_spaces, line)
 
-        line = line[0:line.find("#")].rstrip()
-        fields = re.split(tabs_or_spaces, line)
+            if parsing_zonename is not None:
+                if line[0:3] == "\t\t\t":
+                    state, until = make_zonestateuntil(fields[1:])
+                    if zonestate_in_range(until):
+                        insert_zonestateuntil(parsing_zonename, state, until, zones)
+                    continue
 
-        if parsing_zonename is not None:
-            if line[0:3] == "\t\t\t":
-                state, until = make_zonestateuntil(fields[1:])
+                else:
+                    parsing_zonename = None
+
+            if fields[0] == "Rule":
+                rulesetname = fields[1]
+                rule = make_rule(fields[2:])
+                if rule["from"] <= MAX_YEAR and (
+                    rule["to"] == "maxYear" or (MIN_YEAR - 1) <= int(rule["to"])
+                ):
+                    insert_rule(rulesetname, rule, rulesets)
+
+            elif fields[0] == "Zone":
+                parsing_zonename = fields[1]
+                state, until = make_zonestateuntil(fields[2:])
                 if zonestate_in_range(until):
                     insert_zonestateuntil(parsing_zonename, state, until, zones)
                 continue
@@ -74,13 +92,13 @@ def parse_sourcefile(filepath):
             if rule["from"] <= MAX_YEAR and (rule["to"] == "maxYear" or (MIN_YEAR - 1) <= int(rule["to"])):
                 insert_rule(rulesetname, rule, rulesets)
 
-        elif fields[0] == "Zone":
-            parsing_zonename = fields[1]
+            elif fields[0] == "Link":
+                links[fields[2]] = fields[1]
             state, until = make_zonestateuntil(fields[2:])
             if zonestate_in_range(until):
                 insert_zonestateuntil(parsing_zonename, state, until, zones)
 
-        elif fields[0] == "Link":
+        return (rulesets, zones, links)
             links[fields[2]] = fields[1]
 
     return ( rulesets, zones, links )
@@ -246,11 +264,17 @@ def minutes_from_time(hhmmss):
 # TRANSFORM
 
 def transform(zonenames, ( rulesets, zones, links )):
+def transform(zonenames, rulesets, zones, links):
     # update zones: remove zones without a current state, remove zones not in zonenames
     zones = { name: zone for name, zone in zones.iteritems() if zone["current"] is not None and name in zonenames }
 
-    # update links: remove links to zones not in zonenames
-    links = { source: target for source, target in links.iteritems() if target in zonenames }
+    # update links: _don't_ remove links to zones not in zonenames
+    # update links: remove links to `Etc/` zones
+    links = {
+        source: target
+        for source, target in links.items()
+        if not target.startswith("Etc")
+    }
 
     # update rulesets: add missing rulesets, remove unused rulesets
     rulesetnames = set()
@@ -424,9 +448,8 @@ def create_textfile(filepath, filecontent):
     if not os.path.exists(os.path.dirname(filepath)):
        os.makedirs(os.path.dirname(filepath))
 
-    output = io.open(filepath, "w", encoding="utf-8")
-    output.write(unicode(filecontent, encoding="utf-8-sig"))
-    output.close()
+    with open(filepath, "w") as output:
+        output.write(filecontent)
 
 
 # main
@@ -441,7 +464,7 @@ def main():
     sourcedir = os.path.abspath(args.sourcedir)
 
     if not os.path.exists(sourcedir):
-        print "error: sourcedir not found: " + sourcedir
+        print(f"error: sourcedir not found: {sourcedir}")
         sys.exit(1)
 
     # we only want zones listed in the zone table
@@ -453,14 +476,15 @@ def main():
     links = {}
 
     for filename in PRIMARY_DATA:
-        rulesets_, zones_, links_ = transform(zonenames, parse_sourcefile(os.path.join(sourcedir, filename)))
+        a, b, c = parse_sourcefile(os.path.join(sourcedir, filename))
+        rulesets_, zones_, links_ = transform(zonenames, a, b, c)
         rulesets.update(rulesets_)
         zones.update(zones_)
         links.update(links_)
 
     missingzones = zonenames - set(zones.keys())
     if missingzones:
-        print "error: zones not found: " + ", ".join(missingzones)
+        print("error: zones not found: " + ", ".join(missingzones))
         sys.exit(1)
 
     filecontent = print_filecontent(args.version, rulesets, zones, links)
