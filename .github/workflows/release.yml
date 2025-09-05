@@ -1,7 +1,7 @@
 name: Release on tz update
 on:
   schedule:
-    - cron: "* 0 * * *"
+    - cron: "0 0 * * *"
   workflow_dispatch:
 env:
   FEED_URL: "https://github.com/eggert/tz/tags.atom"
@@ -29,26 +29,26 @@ jobs:
         id: build
         run: |
           res="$(nix run .#build-on-new-version -- "$FEED_FILE_PATH" "$STATE_FILE")"
-          new_file="$(echo "$res" | jq -r '.new_file')"
+          is_new="$(echo "$res" | jq -r '.is_new')"
           version="$(echo "$res" | jq -r '.version')"
           timestamp="$(echo "$res" | jq -r '.timestamp')"
-          echo "is_new=$is_new" >> "$GITHUB_OUTPUT"
-          echo "tz_version=$version" >> "$GITHUB_OUTPUT"
-          echo "timestamp=$timestamp" >> "$GITHUB_OUTPUT"
+          echo "is_new=$is_new" >> $GITHUB_OUTPUT
+          echo "tz_version=$version" >> $GITHUB_OUTPUT
+          echo "timestamp=$timestamp" >> $GITHUB_OUTPUT
       - name: Commit update
         if: ${{ steps.build.outputs.is_new == 'true' }}
         uses: stefanzweifel/git-auto-commit-action@778341af668090896ca464160c2def5d1d1a3eb0 # v6
         with:
-          commit_message: "feat: update to ${{ steps.build.outputs.tz_version }}"
+          commit_message: "feat: update for ${{ steps.build.outputs.tz_version }}"
       - name: Bump
         if: ${{ steps.build.outputs.is_new == 'true' }}
         id: bump
         run: |
-          nix develop --command bash -c 'echo "y" | elm bump'
-          echo "version=$(jq '.version' elm.json)" >> "$GITHUB_OUTPUT"
+          nix shell nixpkgs#elmPackages.elm --command bash -c 'echo "y" | elm bump'
+          echo "version=$(jq -r '.version' elm.json)" >> $GITHUB_OUTPUT
       - name: Commit version bump
         if: ${{ steps.build.outputs.is_new == 'true' }}
         uses: stefanzweifel/git-auto-commit-action@778341af668090896ca464160c2def5d1d1a3eb0 # v6
         with:
           commit_message: "chore(release): ${{ steps.bump.outputs.version }}"
-          tagging_message: "v${{ steps.bump.outputs.version }}"
+          tagging_message: "${{ steps.bump.outputs.version }}"

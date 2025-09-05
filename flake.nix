@@ -10,7 +10,6 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         inherit (pkgs) lib;
-        python = pkgs.python312.withPackages (p: with p; [ feedparser ]);
       in
       {
         apps = {
@@ -21,10 +20,9 @@
                 pkgs.writeShellApplication {
                   name = "build";
                   runtimeInputs = with pkgs; [
-                    python
                     elmPackages.elm-format
                     git
-                    bash
+                    python312
                   ];
                   text = ''
                     bash ./build.sh "" "$1"
@@ -84,10 +82,10 @@
           };
         };
         devShells.default = pkgs.mkShell {
-          packages = [
-            python
-            pkgs.elmPackages.elm-format
-            pkgs.git
+          packages = with pkgs; [
+            python312
+            elmPackages.elm-format
+            git
           ];
         };
       }
