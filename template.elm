@@ -8,6 +8,12 @@ module TimeZone exposing
 {-| This library provides time zone data from the `VERSION` release of the IANA
 Time Zone Database.
 
+This edition of `timezone-data` includes _all_ time zones recorded in
+[`tz`](https://github.com/eggert/tz.git) and aims to be maximally compatible
+with
+[Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/resolvedOptions#timezone),
+[which is how the Elm kernel retrieves the time zone](https://github.com/elm/time/blob/1.0.0/src/Elm/Kernel/Time.js#L44).
+
 @docs version
 
 

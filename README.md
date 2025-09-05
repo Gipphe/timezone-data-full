@@ -1,9 +1,15 @@
-# timezone-data
+# timezone-data-full
 
 This Elm package contains time zone data from the [IANA Time Zone Database][tzdb] for using with [`elm/time`][elmtime].
 
 The `elm/time` library provides a `Posix` type for representing an instant in time. Extracting human-readable parts from a `Posix` time requires a `Time.Zone`. This library provides `Time.Zone` values for all named zones in the database, covering changes between 1970 and 2037.
 
+This edition of `timezone-data` includes _all_ time zones found in [eggert/tz].
+When duplicates are found between `Zone`s and `Link`s, the `Zone` is preferred.
+
+This edition aims to be maximally compatible with time zones returned by
+[Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/resolvedOptions#timezone),
+[which is how the Elm kernel retrieves the time zone](https://github.com/elm/time/blob/1.0.0/src/Elm/Kernel/Time.js#L44).
 
 ## Installation
 
@@ -66,3 +72,4 @@ Using this library to include all time zones in your compiled asset would increa
 [getzone]: https://github.com/justinmimbs/timezone-data/blob/master/examples/GetZone.elm
 [tzif]: https://package.elm-lang.org/packages/justinmimbs/tzif/latest/
 [time-elements]: https://github.com/github/time-elements
+[eggert/tz]: https://github.com/eggert/tz
