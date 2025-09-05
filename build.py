@@ -275,20 +275,8 @@ def minutes_from_time(hhmmss):
 
 
 def transform(zonenames, rulesets, zones, links):
-    # update zones: remove zones without a current state, remove zones not in zonenames
-    zones = {
-        name: zone
-        for name, zone in zones.items()
-        if zone["current"] is not None and name in zonenames
-    }
-
-    # update links: _don't_ remove links to zones not in zonenames
-    # update links: remove links to `Etc/` zones
-    links = {
-        source: target
-        for source, target in links.items()
-        if not target.startswith("Etc")
-    }
+    # update zones: remove zones without a current state
+    zones = {name: zone for name, zone in zones.items() if zone["current"] is not None}
 
     # update rulesets: add missing rulesets, remove unused rulesets
     rulesetnames = set()

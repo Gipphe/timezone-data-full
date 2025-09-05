@@ -2,11 +2,20 @@ module TimeZone exposing
     ( version
     , getZone, Error(..)
     , zones
-    , africa__abidjan, africa__accra, africa__addis_ababa, africa__algiers, africa__asmara, africa__asmera, africa__bamako, africa__bangui, africa__banjul, africa__bissau, africa__blantyre, africa__brazzaville, africa__bujumbura, africa__cairo, africa__casablanca, africa__ceuta, africa__conakry, africa__dakar, africa__dar_es_salaam, africa__djibouti, africa__douala, africa__el_aaiun, africa__freetown, africa__gaborone, africa__harare, africa__johannesburg, africa__juba, africa__kampala, africa__khartoum, africa__kigali, africa__kinshasa, africa__lagos, africa__libreville, africa__lome, africa__luanda, africa__lubumbashi, africa__lusaka, africa__malabo, africa__maputo, africa__maseru, africa__mbabane, africa__mogadishu, africa__monrovia, africa__nairobi, africa__ndjamena, africa__niamey, africa__nouakchott, africa__ouagadougou, africa__porto_novo, africa__sao_tome, africa__timbuktu, africa__tripoli, africa__tunis, africa__windhoek, america__adak, america__anchorage, america__anguilla, america__antigua, america__araguaina, america__argentina__buenos_aires, america__argentina__catamarca, america__argentina__comodrivadavia, america__argentina__cordoba, america__argentina__jujuy, america__argentina__la_rioja, america__argentina__mendoza, america__argentina__rio_gallegos, america__argentina__salta, america__argentina__san_juan, america__argentina__san_luis, america__argentina__tucuman, america__argentina__ushuaia, america__aruba, america__asuncion, america__atikokan, america__atka, america__bahia, america__bahia_banderas, america__barbados, america__belem, america__belize, america__blanc_sablon, america__boa_vista, america__bogota, america__boise, america__buenos_aires, america__cambridge_bay, america__campo_grande, america__cancun, america__caracas, america__catamarca, america__cayenne, america__cayman, america__chicago, america__chihuahua, america__ciudad_juarez, america__coral_harbour, america__cordoba, america__costa_rica, america__coyhaique, america__creston, america__cuiaba, america__curacao, america__danmarkshavn, america__dawson, america__dawson_creek, america__denver, america__detroit, america__dominica, america__edmonton, america__eirunepe, america__el_salvador, america__ensenada, america__fort_nelson, america__fort_wayne, america__fortaleza, america__glace_bay, america__godthab, america__goose_bay, america__grand_turk, america__grenada, america__guadeloupe, america__guatemala, america__guayaquil, america__guyana, america__halifax, america__havana, america__hermosillo, america__indiana__indianapolis, america__indiana__knox, america__indiana__marengo, america__indiana__petersburg, america__indiana__tell_city, america__indiana__vevay, america__indiana__vincennes, america__indiana__winamac, america__indianapolis, america__inuvik, america__iqaluit, america__jamaica, america__jujuy, america__juneau, america__kentucky__louisville, america__kentucky__monticello, america__knox_in, america__kralendijk, america__la_paz, america__lima, america__los_angeles, america__louisville, america__lower_princes, america__maceio, america__managua, america__manaus, america__marigot, america__martinique, america__matamoros, america__mazatlan, america__mendoza, america__menominee, america__merida, america__metlakatla, america__mexico_city, america__miquelon, america__moncton, america__monterrey, america__montevideo, america__montreal, america__montserrat, america__nassau, america__new_york, america__nipigon, america__nome, america__noronha, america__north_dakota__beulah, america__north_dakota__center, america__north_dakota__new_salem, america__nuuk, america__ojinaga, america__panama, america__pangnirtung, america__paramaribo, america__phoenix, america__port_au_prince, america__port_of_spain, america__porto_acre, america__porto_velho, america__puerto_rico, america__punta_arenas, america__rainy_river, america__rankin_inlet, america__recife, america__regina, america__resolute, america__rio_branco, america__rosario, america__santa_isabel, america__santarem, america__santiago, america__santo_domingo, america__sao_paulo, america__scoresbysund, america__shiprock, america__sitka, america__st_barthelemy, america__st_johns, america__st_kitts, america__st_lucia, america__st_thomas, america__st_vincent, america__swift_current, america__tegucigalpa, america__thule, america__thunder_bay, america__tijuana, america__toronto, america__tortola, america__vancouver, america__virgin, america__whitehorse, america__winnipeg, america__yakutat, america__yellowknife, antarctica__casey, antarctica__davis, antarctica__dumontdurville, antarctica__macquarie, antarctica__mawson, antarctica__mcmurdo, antarctica__palmer, antarctica__rothera, antarctica__south_pole, antarctica__syowa, antarctica__troll, antarctica__vostok, arctic__longyearbyen, asia__aden, asia__almaty, asia__amman, asia__anadyr, asia__aqtau, asia__aqtobe, asia__ashgabat, asia__ashkhabad, asia__atyrau, asia__baghdad, asia__bahrain, asia__baku, asia__bangkok, asia__barnaul, asia__beirut, asia__bishkek, asia__brunei, asia__calcutta, asia__chita, asia__choibalsan, asia__chongqing, asia__chungking, asia__colombo, asia__dacca, asia__damascus, asia__dhaka, asia__dili, asia__dubai, asia__dushanbe, asia__famagusta, asia__gaza, asia__harbin, asia__hebron, asia__ho_chi_minh, asia__hong_kong, asia__hovd, asia__irkutsk, asia__istanbul, asia__jakarta, asia__jayapura, asia__jerusalem, asia__kabul, asia__kamchatka, asia__karachi, asia__kashgar, asia__kathmandu, asia__katmandu, asia__khandyga, asia__kolkata, asia__krasnoyarsk, asia__kuala_lumpur, asia__kuching, asia__kuwait, asia__macao, asia__macau, asia__magadan, asia__makassar, asia__manila, asia__muscat, asia__nicosia, asia__novokuznetsk, asia__novosibirsk, asia__omsk, asia__oral, asia__phnom_penh, asia__pontianak, asia__pyongyang, asia__qatar, asia__qostanay, asia__qyzylorda, asia__rangoon, asia__riyadh, asia__saigon, asia__sakhalin, asia__samarkand, asia__seoul, asia__shanghai, asia__singapore, asia__srednekolymsk, asia__taipei, asia__tashkent, asia__tbilisi, asia__tehran, asia__tel_aviv, asia__thimbu, asia__thimphu, asia__tokyo, asia__tomsk, asia__ujung_pandang, asia__ulaanbaatar, asia__ulan_bator, asia__urumqi, asia__ust_nera, asia__vientiane, asia__vladivostok, asia__yakutsk, asia__yangon, asia__yekaterinburg, asia__yerevan, atlantic__azores, atlantic__bermuda, atlantic__canary, atlantic__cape_verde, atlantic__faeroe, atlantic__faroe, atlantic__jan_mayen, atlantic__madeira, atlantic__reykjavik, atlantic__south_georgia, atlantic__st_helena, atlantic__stanley, australia__act, australia__adelaide, australia__brisbane, australia__broken_hill, australia__canberra, australia__currie, australia__darwin, australia__eucla, australia__hobart, australia__lhi, australia__lindeman, australia__lord_howe, australia__melbourne, australia__nsw, australia__north, australia__perth, australia__queensland, australia__south, australia__sydney, australia__tasmania, australia__victoria, australia__west, australia__yancowinna, brazil__acre, brazil__denoronha, brazil__east, brazil__west, cet, cst6cdt, canada__atlantic, canada__central, canada__eastern, canada__mountain, canada__newfoundland, canada__pacific, canada__saskatchewan, canada__yukon, chile__continental, chile__easterisland, cuba, eet, est, est5edt, egypt, eire, europe__amsterdam, europe__andorra, europe__astrakhan, europe__athens, europe__belfast, europe__belgrade, europe__berlin, europe__bratislava, europe__brussels, europe__bucharest, europe__budapest, europe__busingen, europe__chisinau, europe__copenhagen, europe__dublin, europe__gibraltar, europe__guernsey, europe__helsinki, europe__isle_of_man, europe__istanbul, europe__jersey, europe__kaliningrad, europe__kiev, europe__kirov, europe__kyiv, europe__lisbon, europe__ljubljana, europe__london, europe__luxembourg, europe__madrid, europe__malta, europe__mariehamn, europe__minsk, europe__monaco, europe__moscow, europe__nicosia, europe__oslo, europe__paris, europe__podgorica, europe__prague, europe__riga, europe__rome, europe__samara, europe__san_marino, europe__sarajevo, europe__saratov, europe__simferopol, europe__skopje, europe__sofia, europe__stockholm, europe__tallinn, europe__tirane, europe__tiraspol, europe__ulyanovsk, europe__uzhgorod, europe__vaduz, europe__vatican, europe__vienna, europe__vilnius, europe__volgograd, europe__warsaw, europe__zagreb, europe__zaporozhye, europe__zurich, gb, gb_eire, hst, hongkong, iceland, indian__antananarivo, indian__chagos, indian__christmas, indian__cocos, indian__comoro, indian__kerguelen, indian__mahe, indian__maldives, indian__mauritius, indian__mayotte, indian__reunion, iran, israel, jamaica, japan, kwajalein, libya, met, mst, mst7mdt, mexico__bajanorte, mexico__bajasur, mexico__general, nz, nz_chat, navajo, prc, pst8pdt, pacific__apia, pacific__auckland, pacific__bougainville, pacific__chatham, pacific__chuuk, pacific__easter, pacific__efate, pacific__enderbury, pacific__fakaofo, pacific__fiji, pacific__funafuti, pacific__galapagos, pacific__gambier, pacific__guadalcanal, pacific__guam, pacific__honolulu, pacific__johnston, pacific__kanton, pacific__kiritimati, pacific__kosrae, pacific__kwajalein, pacific__majuro, pacific__marquesas, pacific__midway, pacific__nauru, pacific__niue, pacific__norfolk, pacific__noumea, pacific__pago_pago, pacific__palau, pacific__pitcairn, pacific__pohnpei, pacific__ponape, pacific__port_moresby, pacific__rarotonga, pacific__saipan, pacific__samoa, pacific__tahiti, pacific__tarawa, pacific__tongatapu, pacific__truk, pacific__wake, pacific__wallis, pacific__yap, poland, portugal, roc, rok, singapore, turkey, us__alaska, us__aleutian, us__arizona, us__central, us__east_indiana, us__eastern, us__hawaii, us__indiana_starke, us__michigan, us__mountain, us__pacific, us__samoa, w_su, wet
+    , africa__abidjan, africa__accra, africa__addis_ababa, africa__algiers, africa__asmara, africa__asmera, africa__bamako, africa__bangui, africa__banjul, africa__bissau, africa__blantyre, africa__brazzaville, africa__bujumbura, africa__cairo, africa__casablanca, africa__ceuta, africa__conakry, africa__dakar, africa__dar_es_salaam, africa__djibouti, africa__douala, africa__el_aaiun, africa__freetown, africa__gaborone, africa__harare, africa__johannesburg, africa__juba, africa__kampala, africa__khartoum, africa__kigali, africa__kinshasa, africa__lagos, africa__libreville, africa__lome, africa__luanda, africa__lubumbashi, africa__lusaka, africa__malabo, africa__maputo, africa__maseru, africa__mbabane, africa__mogadishu, africa__monrovia, africa__nairobi, africa__ndjamena, africa__niamey, africa__nouakchott, africa__ouagadougou, africa__porto_novo, africa__sao_tome, africa__timbuktu, africa__tripoli, africa__tunis, africa__windhoek, america__adak, america__anchorage, america__anguilla, america__antigua, america__araguaina, america__argentina__buenos_aires, america__argentina__catamarca, america__argentina__comodrivadavia, america__argentina__cordoba, america__argentina__jujuy, america__argentina__la_rioja, america__argentina__mendoza, america__argentina__rio_gallegos, america__argentina__salta, america__argentina__san_juan, america__argentina__san_luis, america__argentina__tucuman, america__argentina__ushuaia, america__aruba, america__asuncion, america__atikokan, america__atka, america__bahia, america__bahia_banderas, america__barbados, america__belem, america__belize, america__blanc_sablon, america__boa_vista, america__bogota, america__boise, america__buenos_aires, america__cambridge_bay, america__campo_grande, america__cancun, america__caracas, america__catamarca, america__cayenne, america__cayman, america__chicago, america__chihuahua, america__ciudad_juarez, america__coral_harbour, america__cordoba, america__costa_rica, america__coyhaique, america__creston, america__cuiaba, america__curacao, america__danmarkshavn, america__dawson, america__dawson_creek, america__denver, america__detroit, america__dominica, america__edmonton, america__eirunepe, america__el_salvador, america__ensenada, america__fort_nelson, america__fort_wayne, america__fortaleza, america__glace_bay, america__godthab, america__goose_bay, america__grand_turk, america__grenada, america__guadeloupe, america__guatemala, america__guayaquil, america__guyana, america__halifax, america__havana, america__hermosillo, america__indiana__indianapolis, america__indiana__knox, america__indiana__marengo, america__indiana__petersburg, america__indiana__tell_city, america__indiana__vevay, america__indiana__vincennes, america__indiana__winamac, america__indianapolis, america__inuvik, america__iqaluit, america__jamaica, america__jujuy, america__juneau, america__kentucky__louisville, america__kentucky__monticello, america__knox_in, america__kralendijk, america__la_paz, america__lima, america__los_angeles, america__louisville, america__lower_princes, america__maceio, america__managua, america__manaus, america__marigot, america__martinique, america__matamoros, america__mazatlan, america__mendoza, america__menominee, america__merida, america__metlakatla, america__mexico_city, america__miquelon, america__moncton, america__monterrey, america__montevideo, america__montreal, america__montserrat, america__nassau, america__new_york, america__nipigon, america__nome, america__noronha, america__north_dakota__beulah, america__north_dakota__center, america__north_dakota__new_salem, america__nuuk, america__ojinaga, america__panama, america__pangnirtung, america__paramaribo, america__phoenix, america__port_au_prince, america__port_of_spain, america__porto_acre, america__porto_velho, america__puerto_rico, america__punta_arenas, america__rainy_river, america__rankin_inlet, america__recife, america__regina, america__resolute, america__rio_branco, america__rosario, america__santa_isabel, america__santarem, america__santiago, america__santo_domingo, america__sao_paulo, america__scoresbysund, america__shiprock, america__sitka, america__st_barthelemy, america__st_johns, america__st_kitts, america__st_lucia, america__st_thomas, america__st_vincent, america__swift_current, america__tegucigalpa, america__thule, america__thunder_bay, america__tijuana, america__toronto, america__tortola, america__vancouver, america__virgin, america__whitehorse, america__winnipeg, america__yakutat, america__yellowknife, antarctica__casey, antarctica__davis, antarctica__dumontdurville, antarctica__macquarie, antarctica__mawson, antarctica__mcmurdo, antarctica__palmer, antarctica__rothera, antarctica__south_pole, antarctica__syowa, antarctica__troll, antarctica__vostok, arctic__longyearbyen, asia__aden, asia__almaty, asia__amman, asia__anadyr, asia__aqtau, asia__aqtobe, asia__ashgabat, asia__ashkhabad, asia__atyrau, asia__baghdad, asia__bahrain, asia__baku, asia__bangkok, asia__barnaul, asia__beirut, asia__bishkek, asia__brunei, asia__calcutta, asia__chita, asia__choibalsan, asia__chongqing, asia__chungking, asia__colombo, asia__dacca, asia__damascus, asia__dhaka, asia__dili, asia__dubai, asia__dushanbe, asia__famagusta, asia__gaza, asia__hanoi, asia__harbin, asia__hebron, asia__ho_chi_minh, asia__hong_kong, asia__hovd, asia__irkutsk, asia__istanbul, asia__jakarta, asia__jayapura, asia__jerusalem, asia__kabul, asia__kamchatka, asia__karachi, asia__kashgar, asia__kathmandu, asia__katmandu, asia__khandyga, asia__kolkata, asia__krasnoyarsk, asia__kuala_lumpur, asia__kuching, asia__kuwait, asia__macao, asia__macau, asia__magadan, asia__makassar, asia__manila, asia__muscat, asia__nicosia, asia__novokuznetsk, asia__novosibirsk, asia__omsk, asia__oral, asia__phnom_penh, asia__pontianak, asia__pyongyang, asia__qatar, asia__qostanay, asia__qyzylorda, asia__rangoon, asia__riyadh, asia__saigon, asia__sakhalin, asia__samarkand, asia__seoul, asia__shanghai, asia__singapore, asia__srednekolymsk, asia__taipei, asia__tashkent, asia__tbilisi, asia__tehran, asia__tel_aviv, asia__thimbu, asia__thimphu, asia__tokyo, asia__tomsk, asia__ujung_pandang, asia__ulaanbaatar, asia__ulan_bator, asia__urumqi, asia__ust_nera, asia__vientiane, asia__vladivostok, asia__yakutsk, asia__yangon, asia__yekaterinburg, asia__yerevan, atlantic__azores, atlantic__bermuda, atlantic__canary, atlantic__cape_verde, atlantic__faeroe, atlantic__faroe, atlantic__jan_mayen, atlantic__madeira, atlantic__reykjavik, atlantic__south_georgia, atlantic__st_helena, atlantic__stanley, australia__act, australia__adelaide, australia__brisbane, australia__broken_hill, australia__canberra, australia__currie, australia__darwin, australia__eucla, australia__hobart, australia__lhi, australia__lindeman, australia__lord_howe, australia__melbourne, australia__nsw, australia__north, australia__perth, australia__queensland, australia__south, australia__sydney, australia__tasmania, australia__victoria, australia__west, australia__yancowinna, brazil__acre, brazil__denoronha, brazil__east, brazil__west, cet, cst6cdt, canada__atlantic, canada__central, canada__eastern, canada__mountain, canada__newfoundland, canada__pacific, canada__saskatchewan, canada__yukon, chile__continental, chile__easterisland, cuba, eet, est, est5edt, egypt, eire, etc__gmt, etc__gmt_plus0, etc__gmt_plus1, etc__gmt_plus10, etc__gmt_plus11, etc__gmt_plus12, etc__gmt_plus2, etc__gmt_plus3, etc__gmt_plus4, etc__gmt_plus5, etc__gmt_plus6, etc__gmt_plus7, etc__gmt_plus8, etc__gmt_plus9, etc__gmt_0, etc__gmt_1, etc__gmt_10, etc__gmt_11, etc__gmt_12, etc__gmt_13, etc__gmt_14, etc__gmt_2, etc__gmt_3, etc__gmt_4, etc__gmt_5, etc__gmt_6, etc__gmt_7, etc__gmt_8, etc__gmt_9, etc__gmt0, etc__greenwich, etc__uct, etc__utc, etc__universal, etc__zulu, europe__amsterdam, europe__andorra, europe__astrakhan, europe__athens, europe__belfast, europe__belgrade, europe__berlin, europe__bratislava, europe__brussels, europe__bucharest, europe__budapest, europe__busingen, europe__chisinau, europe__copenhagen, europe__dublin, europe__gibraltar, europe__guernsey, europe__helsinki, europe__isle_of_man, europe__istanbul, europe__jersey, europe__kaliningrad, europe__kiev, europe__kirov, europe__kyiv, europe__lisbon, europe__ljubljana, europe__london, europe__luxembourg, europe__madrid, europe__malta, europe__mariehamn, europe__minsk, europe__monaco, europe__moscow, europe__nicosia, europe__oslo, europe__paris, europe__podgorica, europe__prague, europe__riga, europe__rome, europe__samara, europe__san_marino, europe__sarajevo, europe__saratov, europe__simferopol, europe__skopje, europe__sofia, europe__stockholm, europe__tallinn, europe__tirane, europe__tiraspol, europe__ulyanovsk, europe__uzhgorod, europe__vaduz, europe__vatican, europe__vienna, europe__vilnius, europe__volgograd, europe__warsaw, europe__zagreb, europe__zaporozhye, europe__zurich, gb, gb_eire, gmt, gmt_plus0, gmt_0, gmt0, greenwich, hst, hongkong, iceland, indian__antananarivo, indian__chagos, indian__christmas, indian__cocos, indian__comoro, indian__kerguelen, indian__mahe, indian__maldives, indian__mauritius, indian__mayotte, indian__reunion, iran, israel, jamaica, japan, kwajalein, libya, met, mst, mst7mdt, mexico__bajanorte, mexico__bajasur, mexico__general, nz, nz_chat, navajo, prc, pst8pdt, pacific__apia, pacific__auckland, pacific__bougainville, pacific__chatham, pacific__chuuk, pacific__easter, pacific__efate, pacific__enderbury, pacific__fakaofo, pacific__fiji, pacific__funafuti, pacific__galapagos, pacific__gambier, pacific__guadalcanal, pacific__guam, pacific__honolulu, pacific__johnston, pacific__kanton, pacific__kiritimati, pacific__kosrae, pacific__kwajalein, pacific__majuro, pacific__marquesas, pacific__midway, pacific__nauru, pacific__niue, pacific__norfolk, pacific__noumea, pacific__pago_pago, pacific__palau, pacific__pitcairn, pacific__pohnpei, pacific__ponape, pacific__port_moresby, pacific__rarotonga, pacific__saipan, pacific__samoa, pacific__tahiti, pacific__tarawa, pacific__tongatapu, pacific__truk, pacific__wake, pacific__wallis, pacific__yap, poland, portugal, roc, rok, singapore, turkey, uct, us__alaska, us__aleutian, us__arizona, us__central, us__east_indiana, us__eastern, us__hawaii, us__indiana_starke, us__michigan, us__mountain, us__pacific, us__samoa, utc, universal, w_su, wet, zulu
     )
 
 {-| This library provides time zone data from the `2025b` release of the IANA
 Time Zone Database.
+
+This edition of `timezone-data` includes time zones from
+[`justinmimbs/timezone-data`](https://package.elm-lang.org/packages/justinmimbs/timezone-data/latest/),
+but adds time zones from the following files in
+[`tz`](https://github.com/eggert/tz.git):
+
+  - `backzone`
+  - `backward`
+  - `etcetera`
 
 @docs version
 
@@ -27,7 +36,7 @@ Each unevaluated zone is named after its zone name (e.g.
 by `_`, and the name is lowercased. For example, `America/Port-au-Prince`
 becomes `america__port_au_prince`.
 
-@docs africa__abidjan, africa__accra, africa__addis_ababa, africa__algiers, africa__asmara, africa__asmera, africa__bamako, africa__bangui, africa__banjul, africa__bissau, africa__blantyre, africa__brazzaville, africa__bujumbura, africa__cairo, africa__casablanca, africa__ceuta, africa__conakry, africa__dakar, africa__dar_es_salaam, africa__djibouti, africa__douala, africa__el_aaiun, africa__freetown, africa__gaborone, africa__harare, africa__johannesburg, africa__juba, africa__kampala, africa__khartoum, africa__kigali, africa__kinshasa, africa__lagos, africa__libreville, africa__lome, africa__luanda, africa__lubumbashi, africa__lusaka, africa__malabo, africa__maputo, africa__maseru, africa__mbabane, africa__mogadishu, africa__monrovia, africa__nairobi, africa__ndjamena, africa__niamey, africa__nouakchott, africa__ouagadougou, africa__porto_novo, africa__sao_tome, africa__timbuktu, africa__tripoli, africa__tunis, africa__windhoek, america__adak, america__anchorage, america__anguilla, america__antigua, america__araguaina, america__argentina__buenos_aires, america__argentina__catamarca, america__argentina__comodrivadavia, america__argentina__cordoba, america__argentina__jujuy, america__argentina__la_rioja, america__argentina__mendoza, america__argentina__rio_gallegos, america__argentina__salta, america__argentina__san_juan, america__argentina__san_luis, america__argentina__tucuman, america__argentina__ushuaia, america__aruba, america__asuncion, america__atikokan, america__atka, america__bahia, america__bahia_banderas, america__barbados, america__belem, america__belize, america__blanc_sablon, america__boa_vista, america__bogota, america__boise, america__buenos_aires, america__cambridge_bay, america__campo_grande, america__cancun, america__caracas, america__catamarca, america__cayenne, america__cayman, america__chicago, america__chihuahua, america__ciudad_juarez, america__coral_harbour, america__cordoba, america__costa_rica, america__coyhaique, america__creston, america__cuiaba, america__curacao, america__danmarkshavn, america__dawson, america__dawson_creek, america__denver, america__detroit, america__dominica, america__edmonton, america__eirunepe, america__el_salvador, america__ensenada, america__fort_nelson, america__fort_wayne, america__fortaleza, america__glace_bay, america__godthab, america__goose_bay, america__grand_turk, america__grenada, america__guadeloupe, america__guatemala, america__guayaquil, america__guyana, america__halifax, america__havana, america__hermosillo, america__indiana__indianapolis, america__indiana__knox, america__indiana__marengo, america__indiana__petersburg, america__indiana__tell_city, america__indiana__vevay, america__indiana__vincennes, america__indiana__winamac, america__indianapolis, america__inuvik, america__iqaluit, america__jamaica, america__jujuy, america__juneau, america__kentucky__louisville, america__kentucky__monticello, america__knox_in, america__kralendijk, america__la_paz, america__lima, america__los_angeles, america__louisville, america__lower_princes, america__maceio, america__managua, america__manaus, america__marigot, america__martinique, america__matamoros, america__mazatlan, america__mendoza, america__menominee, america__merida, america__metlakatla, america__mexico_city, america__miquelon, america__moncton, america__monterrey, america__montevideo, america__montreal, america__montserrat, america__nassau, america__new_york, america__nipigon, america__nome, america__noronha, america__north_dakota__beulah, america__north_dakota__center, america__north_dakota__new_salem, america__nuuk, america__ojinaga, america__panama, america__pangnirtung, america__paramaribo, america__phoenix, america__port_au_prince, america__port_of_spain, america__porto_acre, america__porto_velho, america__puerto_rico, america__punta_arenas, america__rainy_river, america__rankin_inlet, america__recife, america__regina, america__resolute, america__rio_branco, america__rosario, america__santa_isabel, america__santarem, america__santiago, america__santo_domingo, america__sao_paulo, america__scoresbysund, america__shiprock, america__sitka, america__st_barthelemy, america__st_johns, america__st_kitts, america__st_lucia, america__st_thomas, america__st_vincent, america__swift_current, america__tegucigalpa, america__thule, america__thunder_bay, america__tijuana, america__toronto, america__tortola, america__vancouver, america__virgin, america__whitehorse, america__winnipeg, america__yakutat, america__yellowknife, antarctica__casey, antarctica__davis, antarctica__dumontdurville, antarctica__macquarie, antarctica__mawson, antarctica__mcmurdo, antarctica__palmer, antarctica__rothera, antarctica__south_pole, antarctica__syowa, antarctica__troll, antarctica__vostok, arctic__longyearbyen, asia__aden, asia__almaty, asia__amman, asia__anadyr, asia__aqtau, asia__aqtobe, asia__ashgabat, asia__ashkhabad, asia__atyrau, asia__baghdad, asia__bahrain, asia__baku, asia__bangkok, asia__barnaul, asia__beirut, asia__bishkek, asia__brunei, asia__calcutta, asia__chita, asia__choibalsan, asia__chongqing, asia__chungking, asia__colombo, asia__dacca, asia__damascus, asia__dhaka, asia__dili, asia__dubai, asia__dushanbe, asia__famagusta, asia__gaza, asia__harbin, asia__hebron, asia__ho_chi_minh, asia__hong_kong, asia__hovd, asia__irkutsk, asia__istanbul, asia__jakarta, asia__jayapura, asia__jerusalem, asia__kabul, asia__kamchatka, asia__karachi, asia__kashgar, asia__kathmandu, asia__katmandu, asia__khandyga, asia__kolkata, asia__krasnoyarsk, asia__kuala_lumpur, asia__kuching, asia__kuwait, asia__macao, asia__macau, asia__magadan, asia__makassar, asia__manila, asia__muscat, asia__nicosia, asia__novokuznetsk, asia__novosibirsk, asia__omsk, asia__oral, asia__phnom_penh, asia__pontianak, asia__pyongyang, asia__qatar, asia__qostanay, asia__qyzylorda, asia__rangoon, asia__riyadh, asia__saigon, asia__sakhalin, asia__samarkand, asia__seoul, asia__shanghai, asia__singapore, asia__srednekolymsk, asia__taipei, asia__tashkent, asia__tbilisi, asia__tehran, asia__tel_aviv, asia__thimbu, asia__thimphu, asia__tokyo, asia__tomsk, asia__ujung_pandang, asia__ulaanbaatar, asia__ulan_bator, asia__urumqi, asia__ust_nera, asia__vientiane, asia__vladivostok, asia__yakutsk, asia__yangon, asia__yekaterinburg, asia__yerevan, atlantic__azores, atlantic__bermuda, atlantic__canary, atlantic__cape_verde, atlantic__faeroe, atlantic__faroe, atlantic__jan_mayen, atlantic__madeira, atlantic__reykjavik, atlantic__south_georgia, atlantic__st_helena, atlantic__stanley, australia__act, australia__adelaide, australia__brisbane, australia__broken_hill, australia__canberra, australia__currie, australia__darwin, australia__eucla, australia__hobart, australia__lhi, australia__lindeman, australia__lord_howe, australia__melbourne, australia__nsw, australia__north, australia__perth, australia__queensland, australia__south, australia__sydney, australia__tasmania, australia__victoria, australia__west, australia__yancowinna, brazil__acre, brazil__denoronha, brazil__east, brazil__west, cet, cst6cdt, canada__atlantic, canada__central, canada__eastern, canada__mountain, canada__newfoundland, canada__pacific, canada__saskatchewan, canada__yukon, chile__continental, chile__easterisland, cuba, eet, est, est5edt, egypt, eire, europe__amsterdam, europe__andorra, europe__astrakhan, europe__athens, europe__belfast, europe__belgrade, europe__berlin, europe__bratislava, europe__brussels, europe__bucharest, europe__budapest, europe__busingen, europe__chisinau, europe__copenhagen, europe__dublin, europe__gibraltar, europe__guernsey, europe__helsinki, europe__isle_of_man, europe__istanbul, europe__jersey, europe__kaliningrad, europe__kiev, europe__kirov, europe__kyiv, europe__lisbon, europe__ljubljana, europe__london, europe__luxembourg, europe__madrid, europe__malta, europe__mariehamn, europe__minsk, europe__monaco, europe__moscow, europe__nicosia, europe__oslo, europe__paris, europe__podgorica, europe__prague, europe__riga, europe__rome, europe__samara, europe__san_marino, europe__sarajevo, europe__saratov, europe__simferopol, europe__skopje, europe__sofia, europe__stockholm, europe__tallinn, europe__tirane, europe__tiraspol, europe__ulyanovsk, europe__uzhgorod, europe__vaduz, europe__vatican, europe__vienna, europe__vilnius, europe__volgograd, europe__warsaw, europe__zagreb, europe__zaporozhye, europe__zurich, gb, gb_eire, hst, hongkong, iceland, indian__antananarivo, indian__chagos, indian__christmas, indian__cocos, indian__comoro, indian__kerguelen, indian__mahe, indian__maldives, indian__mauritius, indian__mayotte, indian__reunion, iran, israel, jamaica, japan, kwajalein, libya, met, mst, mst7mdt, mexico__bajanorte, mexico__bajasur, mexico__general, nz, nz_chat, navajo, prc, pst8pdt, pacific__apia, pacific__auckland, pacific__bougainville, pacific__chatham, pacific__chuuk, pacific__easter, pacific__efate, pacific__enderbury, pacific__fakaofo, pacific__fiji, pacific__funafuti, pacific__galapagos, pacific__gambier, pacific__guadalcanal, pacific__guam, pacific__honolulu, pacific__johnston, pacific__kanton, pacific__kiritimati, pacific__kosrae, pacific__kwajalein, pacific__majuro, pacific__marquesas, pacific__midway, pacific__nauru, pacific__niue, pacific__norfolk, pacific__noumea, pacific__pago_pago, pacific__palau, pacific__pitcairn, pacific__pohnpei, pacific__ponape, pacific__port_moresby, pacific__rarotonga, pacific__saipan, pacific__samoa, pacific__tahiti, pacific__tarawa, pacific__tongatapu, pacific__truk, pacific__wake, pacific__wallis, pacific__yap, poland, portugal, roc, rok, singapore, turkey, us__alaska, us__aleutian, us__arizona, us__central, us__east_indiana, us__eastern, us__hawaii, us__indiana_starke, us__michigan, us__mountain, us__pacific, us__samoa, w_su, wet
+@docs africa__abidjan, africa__accra, africa__accra, africa__addis_ababa, africa__addis_ababa, africa__algiers, africa__asmara, africa__asmara, africa__asmera, africa__bamako, africa__bamako, africa__bangui, africa__bangui, africa__banjul, africa__banjul, africa__bissau, africa__blantyre, africa__blantyre, africa__brazzaville, africa__brazzaville, africa__bujumbura, africa__bujumbura, africa__cairo, africa__casablanca, africa__ceuta, africa__conakry, africa__conakry, africa__dakar, africa__dakar, africa__dar_es_salaam, africa__dar_es_salaam, africa__djibouti, africa__djibouti, africa__douala, africa__douala, africa__el_aaiun, africa__freetown, africa__freetown, africa__gaborone, africa__gaborone, africa__harare, africa__harare, africa__johannesburg, africa__juba, africa__kampala, africa__kampala, africa__khartoum, africa__kigali, africa__kigali, africa__kinshasa, africa__kinshasa, africa__lagos, africa__libreville, africa__libreville, africa__lome, africa__lome, africa__luanda, africa__luanda, africa__lubumbashi, africa__lubumbashi, africa__lusaka, africa__lusaka, africa__malabo, africa__malabo, africa__maputo, africa__maseru, africa__maseru, africa__mbabane, africa__mbabane, africa__mogadishu, africa__mogadishu, africa__monrovia, africa__nairobi, africa__ndjamena, africa__niamey, africa__niamey, africa__nouakchott, africa__nouakchott, africa__ouagadougou, africa__ouagadougou, africa__porto_novo, africa__porto_novo, africa__sao_tome, africa__timbuktu, africa__timbuktu, africa__tripoli, africa__tunis, africa__windhoek, america__adak, america__anchorage, america__anguilla, america__anguilla, america__antigua, america__antigua, america__araguaina, america__argentina__buenos_aires, america__argentina__catamarca, america__argentina__comodrivadavia, america__argentina__comodrivadavia, america__argentina__cordoba, america__argentina__jujuy, america__argentina__la_rioja, america__argentina__mendoza, america__argentina__rio_gallegos, america__argentina__salta, america__argentina__san_juan, america__argentina__san_luis, america__argentina__tucuman, america__argentina__ushuaia, america__aruba, america__aruba, america__asuncion, america__atikokan, america__atikokan, america__atka, america__bahia, america__bahia_banderas, america__barbados, america__belem, america__belize, america__blanc_sablon, america__blanc_sablon, america__boa_vista, america__bogota, america__boise, america__buenos_aires, america__cambridge_bay, america__campo_grande, america__cancun, america__caracas, america__catamarca, america__cayenne, america__cayman, america__cayman, america__chicago, america__chihuahua, america__ciudad_juarez, america__coral_harbour, america__coral_harbour, america__cordoba, america__costa_rica, america__coyhaique, america__creston, america__creston, america__cuiaba, america__curacao, america__curacao, america__danmarkshavn, america__dawson, america__dawson_creek, america__denver, america__detroit, america__dominica, america__dominica, america__edmonton, america__eirunepe, america__el_salvador, america__ensenada, america__ensenada, america__fort_nelson, america__fort_wayne, america__fortaleza, america__glace_bay, america__godthab, america__goose_bay, america__grand_turk, america__grenada, america__grenada, america__guadeloupe, america__guadeloupe, america__guatemala, america__guayaquil, america__guyana, america__halifax, america__havana, america__hermosillo, america__indiana__indianapolis, america__indiana__knox, america__indiana__marengo, america__indiana__petersburg, america__indiana__tell_city, america__indiana__vevay, america__indiana__vincennes, america__indiana__winamac, america__indianapolis, america__inuvik, america__iqaluit, america__jamaica, america__jujuy, america__juneau, america__kentucky__louisville, america__kentucky__monticello, america__knox_in, america__kralendijk, america__la_paz, america__lima, america__los_angeles, america__louisville, america__lower_princes, america__maceio, america__managua, america__manaus, america__marigot, america__martinique, america__matamoros, america__mazatlan, america__mendoza, america__menominee, america__merida, america__metlakatla, america__mexico_city, america__miquelon, america__moncton, america__monterrey, america__montevideo, america__montreal, america__montreal, america__montserrat, america__montserrat, america__nassau, america__nassau, america__new_york, america__nipigon, america__nipigon, america__nome, america__noronha, america__north_dakota__beulah, america__north_dakota__center, america__north_dakota__new_salem, america__nuuk, america__ojinaga, america__panama, america__pangnirtung, america__pangnirtung, america__paramaribo, america__phoenix, america__port_au_prince, america__port_of_spain, america__port_of_spain, america__porto_acre, america__porto_velho, america__puerto_rico, america__punta_arenas, america__rainy_river, america__rainy_river, america__rankin_inlet, america__recife, america__regina, america__resolute, america__rio_branco, america__rosario, america__rosario, america__santa_isabel, america__santarem, america__santiago, america__santo_domingo, america__sao_paulo, america__scoresbysund, america__shiprock, america__sitka, america__st_barthelemy, america__st_johns, america__st_kitts, america__st_kitts, america__st_lucia, america__st_lucia, america__st_thomas, america__st_thomas, america__st_vincent, america__st_vincent, america__swift_current, america__tegucigalpa, america__thule, america__thunder_bay, america__thunder_bay, america__tijuana, america__toronto, america__tortola, america__tortola, america__vancouver, america__virgin, america__whitehorse, america__winnipeg, america__yakutat, america__yellowknife, america__yellowknife, antarctica__casey, antarctica__davis, antarctica__dumontdurville, antarctica__dumontdurville, antarctica__macquarie, antarctica__mawson, antarctica__mcmurdo, antarctica__mcmurdo, antarctica__palmer, antarctica__rothera, antarctica__south_pole, antarctica__syowa, antarctica__syowa, antarctica__troll, antarctica__vostok, arctic__longyearbyen, asia__aden, asia__aden, asia__almaty, asia__amman, asia__anadyr, asia__aqtau, asia__aqtobe, asia__ashgabat, asia__ashkhabad, asia__atyrau, asia__baghdad, asia__bahrain, asia__bahrain, asia__baku, asia__bangkok, asia__barnaul, asia__beirut, asia__bishkek, asia__brunei, asia__brunei, asia__calcutta, asia__chita, asia__choibalsan, asia__chongqing, asia__chongqing, asia__chungking, asia__colombo, asia__dacca, asia__damascus, asia__dhaka, asia__dili, asia__dubai, asia__dushanbe, asia__famagusta, asia__gaza, asia__hanoi, asia__harbin, asia__harbin, asia__hebron, asia__ho_chi_minh, asia__hong_kong, asia__hovd, asia__irkutsk, asia__istanbul, asia__jakarta, asia__jayapura, asia__jerusalem, asia__kabul, asia__kamchatka, asia__karachi, asia__kashgar, asia__kashgar, asia__kathmandu, asia__katmandu, asia__khandyga, asia__kolkata, asia__krasnoyarsk, asia__kuala_lumpur, asia__kuala_lumpur, asia__kuching, asia__kuwait, asia__kuwait, asia__macao, asia__macau, asia__magadan, asia__makassar, asia__manila, asia__muscat, asia__muscat, asia__nicosia, asia__novokuznetsk, asia__novosibirsk, asia__omsk, asia__oral, asia__phnom_penh, asia__phnom_penh, asia__pontianak, asia__pyongyang, asia__qatar, asia__qostanay, asia__qyzylorda, asia__rangoon, asia__riyadh, asia__saigon, asia__sakhalin, asia__samarkand, asia__seoul, asia__shanghai, asia__singapore, asia__srednekolymsk, asia__taipei, asia__tashkent, asia__tbilisi, asia__tehran, asia__tel_aviv, asia__tel_aviv, asia__thimbu, asia__thimphu, asia__tokyo, asia__tomsk, asia__ujung_pandang, asia__ulaanbaatar, asia__ulan_bator, asia__urumqi, asia__ust_nera, asia__vientiane, asia__vientiane, asia__vladivostok, asia__yakutsk, asia__yangon, asia__yekaterinburg, asia__yerevan, atlantic__azores, atlantic__bermuda, atlantic__canary, atlantic__cape_verde, atlantic__faeroe, atlantic__faroe, atlantic__jan_mayen, atlantic__jan_mayen, atlantic__madeira, atlantic__reykjavik, atlantic__reykjavik, atlantic__south_georgia, atlantic__st_helena, atlantic__st_helena, atlantic__stanley, australia__act, australia__adelaide, australia__brisbane, australia__broken_hill, australia__canberra, australia__currie, australia__currie, australia__darwin, australia__eucla, australia__hobart, australia__lhi, australia__lindeman, australia__lord_howe, australia__melbourne, australia__nsw, australia__north, australia__perth, australia__queensland, australia__south, australia__sydney, australia__tasmania, australia__victoria, australia__west, australia__yancowinna, brazil__acre, brazil__denoronha, brazil__east, brazil__west, cet, cet, cst6cdt, cst6cdt, canada__atlantic, canada__central, canada__eastern, canada__mountain, canada__newfoundland, canada__pacific, canada__saskatchewan, canada__yukon, chile__continental, chile__easterisland, cuba, eet, eet, est, est, est5edt, est5edt, egypt, eire, etc__gmt, etc__gmt_plus0, etc__gmt_plus1, etc__gmt_plus10, etc__gmt_plus11, etc__gmt_plus12, etc__gmt_plus2, etc__gmt_plus3, etc__gmt_plus4, etc__gmt_plus5, etc__gmt_plus6, etc__gmt_plus7, etc__gmt_plus8, etc__gmt_plus9, etc__gmt_0, etc__gmt_1, etc__gmt_10, etc__gmt_11, etc__gmt_12, etc__gmt_13, etc__gmt_14, etc__gmt_2, etc__gmt_3, etc__gmt_4, etc__gmt_5, etc__gmt_6, etc__gmt_7, etc__gmt_8, etc__gmt_9, etc__gmt0, etc__greenwich, etc__uct, etc__utc, etc__universal, etc__zulu, europe__amsterdam, europe__amsterdam, europe__andorra, europe__astrakhan, europe__athens, europe__belfast, europe__belfast, europe__belgrade, europe__berlin, europe__bratislava, europe__brussels, europe__bucharest, europe__budapest, europe__busingen, europe__chisinau, europe__copenhagen, europe__copenhagen, europe__dublin, europe__gibraltar, europe__guernsey, europe__guernsey, europe__helsinki, europe__isle_of_man, europe__isle_of_man, europe__istanbul, europe__jersey, europe__jersey, europe__kaliningrad, europe__kiev, europe__kirov, europe__kyiv, europe__lisbon, europe__ljubljana, europe__ljubljana, europe__london, europe__luxembourg, europe__luxembourg, europe__madrid, europe__malta, europe__mariehamn, europe__minsk, europe__monaco, europe__monaco, europe__moscow, europe__nicosia, europe__oslo, europe__oslo, europe__paris, europe__podgorica, europe__prague, europe__riga, europe__rome, europe__samara, europe__san_marino, europe__sarajevo, europe__sarajevo, europe__saratov, europe__simferopol, europe__skopje, europe__skopje, europe__sofia, europe__stockholm, europe__stockholm, europe__tallinn, europe__tirane, europe__tiraspol, europe__tiraspol, europe__ulyanovsk, europe__uzhgorod, europe__uzhgorod, europe__vaduz, europe__vaduz, europe__vatican, europe__vienna, europe__vilnius, europe__volgograd, europe__warsaw, europe__zagreb, europe__zagreb, europe__zaporozhye, europe__zaporozhye, europe__zurich, gb, gb_eire, gmt, gmt_plus0, gmt_0, gmt0, greenwich, hst, hst, hongkong, iceland, indian__antananarivo, indian__antananarivo, indian__chagos, indian__christmas, indian__christmas, indian__cocos, indian__cocos, indian__comoro, indian__comoro, indian__kerguelen, indian__kerguelen, indian__mahe, indian__mahe, indian__maldives, indian__mauritius, indian__mayotte, indian__mayotte, indian__reunion, indian__reunion, iran, israel, jamaica, japan, kwajalein, libya, met, met, mst, mst, mst7mdt, mst7mdt, mexico__bajanorte, mexico__bajasur, mexico__general, nz, nz_chat, navajo, prc, pst8pdt, pst8pdt, pacific__apia, pacific__auckland, pacific__bougainville, pacific__chatham, pacific__chuuk, pacific__chuuk, pacific__easter, pacific__efate, pacific__enderbury, pacific__enderbury, pacific__fakaofo, pacific__fiji, pacific__funafuti, pacific__funafuti, pacific__galapagos, pacific__gambier, pacific__guadalcanal, pacific__guam, pacific__honolulu, pacific__johnston, pacific__johnston, pacific__kanton, pacific__kiritimati, pacific__kosrae, pacific__kwajalein, pacific__majuro, pacific__majuro, pacific__marquesas, pacific__midway, pacific__midway, pacific__nauru, pacific__niue, pacific__norfolk, pacific__noumea, pacific__pago_pago, pacific__palau, pacific__pitcairn, pacific__pohnpei, pacific__pohnpei, pacific__ponape, pacific__port_moresby, pacific__rarotonga, pacific__saipan, pacific__saipan, pacific__samoa, pacific__tahiti, pacific__tarawa, pacific__tongatapu, pacific__truk, pacific__wake, pacific__wake, pacific__wallis, pacific__wallis, pacific__yap, poland, portugal, roc, rok, singapore, turkey, uct, us__alaska, us__aleutian, us__arizona, us__central, us__east_indiana, us__eastern, us__hawaii, us__indiana_starke, us__michigan, us__mountain, us__pacific, us__samoa, utc, universal, w_su, wet, wet, zulu
 
 -}
 
@@ -107,54 +116,88 @@ zones : Dict String (() -> Time.Zone)
 zones =
     [ ( "Africa/Abidjan", africa__abidjan )
     , ( "Africa/Accra", africa__accra )
+    , ( "Africa/Accra", africa__accra )
+    , ( "Africa/Addis_Ababa", africa__addis_ababa )
     , ( "Africa/Addis_Ababa", africa__addis_ababa )
     , ( "Africa/Algiers", africa__algiers )
     , ( "Africa/Asmara", africa__asmara )
+    , ( "Africa/Asmara", africa__asmara )
     , ( "Africa/Asmera", africa__asmera )
     , ( "Africa/Bamako", africa__bamako )
+    , ( "Africa/Bamako", africa__bamako )
     , ( "Africa/Bangui", africa__bangui )
+    , ( "Africa/Bangui", africa__bangui )
+    , ( "Africa/Banjul", africa__banjul )
     , ( "Africa/Banjul", africa__banjul )
     , ( "Africa/Bissau", africa__bissau )
     , ( "Africa/Blantyre", africa__blantyre )
+    , ( "Africa/Blantyre", africa__blantyre )
     , ( "Africa/Brazzaville", africa__brazzaville )
+    , ( "Africa/Brazzaville", africa__brazzaville )
+    , ( "Africa/Bujumbura", africa__bujumbura )
     , ( "Africa/Bujumbura", africa__bujumbura )
     , ( "Africa/Cairo", africa__cairo )
     , ( "Africa/Casablanca", africa__casablanca )
     , ( "Africa/Ceuta", africa__ceuta )
     , ( "Africa/Conakry", africa__conakry )
+    , ( "Africa/Conakry", africa__conakry )
+    , ( "Africa/Dakar", africa__dakar )
     , ( "Africa/Dakar", africa__dakar )
     , ( "Africa/Dar_es_Salaam", africa__dar_es_salaam )
+    , ( "Africa/Dar_es_Salaam", africa__dar_es_salaam )
     , ( "Africa/Djibouti", africa__djibouti )
+    , ( "Africa/Djibouti", africa__djibouti )
+    , ( "Africa/Douala", africa__douala )
     , ( "Africa/Douala", africa__douala )
     , ( "Africa/El_Aaiun", africa__el_aaiun )
     , ( "Africa/Freetown", africa__freetown )
+    , ( "Africa/Freetown", africa__freetown )
     , ( "Africa/Gaborone", africa__gaborone )
+    , ( "Africa/Gaborone", africa__gaborone )
+    , ( "Africa/Harare", africa__harare )
     , ( "Africa/Harare", africa__harare )
     , ( "Africa/Johannesburg", africa__johannesburg )
     , ( "Africa/Juba", africa__juba )
     , ( "Africa/Kampala", africa__kampala )
+    , ( "Africa/Kampala", africa__kampala )
     , ( "Africa/Khartoum", africa__khartoum )
     , ( "Africa/Kigali", africa__kigali )
+    , ( "Africa/Kigali", africa__kigali )
+    , ( "Africa/Kinshasa", africa__kinshasa )
     , ( "Africa/Kinshasa", africa__kinshasa )
     , ( "Africa/Lagos", africa__lagos )
     , ( "Africa/Libreville", africa__libreville )
+    , ( "Africa/Libreville", africa__libreville )
+    , ( "Africa/Lome", africa__lome )
     , ( "Africa/Lome", africa__lome )
     , ( "Africa/Luanda", africa__luanda )
+    , ( "Africa/Luanda", africa__luanda )
+    , ( "Africa/Lubumbashi", africa__lubumbashi )
     , ( "Africa/Lubumbashi", africa__lubumbashi )
     , ( "Africa/Lusaka", africa__lusaka )
+    , ( "Africa/Lusaka", africa__lusaka )
+    , ( "Africa/Malabo", africa__malabo )
     , ( "Africa/Malabo", africa__malabo )
     , ( "Africa/Maputo", africa__maputo )
     , ( "Africa/Maseru", africa__maseru )
+    , ( "Africa/Maseru", africa__maseru )
     , ( "Africa/Mbabane", africa__mbabane )
+    , ( "Africa/Mbabane", africa__mbabane )
+    , ( "Africa/Mogadishu", africa__mogadishu )
     , ( "Africa/Mogadishu", africa__mogadishu )
     , ( "Africa/Monrovia", africa__monrovia )
     , ( "Africa/Nairobi", africa__nairobi )
     , ( "Africa/Ndjamena", africa__ndjamena )
     , ( "Africa/Niamey", africa__niamey )
+    , ( "Africa/Niamey", africa__niamey )
+    , ( "Africa/Nouakchott", africa__nouakchott )
     , ( "Africa/Nouakchott", africa__nouakchott )
     , ( "Africa/Ouagadougou", africa__ouagadougou )
+    , ( "Africa/Ouagadougou", africa__ouagadougou )
+    , ( "Africa/Porto-Novo", africa__porto_novo )
     , ( "Africa/Porto-Novo", africa__porto_novo )
     , ( "Africa/Sao_Tome", africa__sao_tome )
+    , ( "Africa/Timbuktu", africa__timbuktu )
     , ( "Africa/Timbuktu", africa__timbuktu )
     , ( "Africa/Tripoli", africa__tripoli )
     , ( "Africa/Tunis", africa__tunis )
@@ -162,10 +205,13 @@ zones =
     , ( "America/Adak", america__adak )
     , ( "America/Anchorage", america__anchorage )
     , ( "America/Anguilla", america__anguilla )
+    , ( "America/Anguilla", america__anguilla )
+    , ( "America/Antigua", america__antigua )
     , ( "America/Antigua", america__antigua )
     , ( "America/Araguaina", america__araguaina )
     , ( "America/Argentina/Buenos_Aires", america__argentina__buenos_aires )
     , ( "America/Argentina/Catamarca", america__argentina__catamarca )
+    , ( "America/Argentina/ComodRivadavia", america__argentina__comodrivadavia )
     , ( "America/Argentina/ComodRivadavia", america__argentina__comodrivadavia )
     , ( "America/Argentina/Cordoba", america__argentina__cordoba )
     , ( "America/Argentina/Jujuy", america__argentina__jujuy )
@@ -178,7 +224,9 @@ zones =
     , ( "America/Argentina/Tucuman", america__argentina__tucuman )
     , ( "America/Argentina/Ushuaia", america__argentina__ushuaia )
     , ( "America/Aruba", america__aruba )
+    , ( "America/Aruba", america__aruba )
     , ( "America/Asuncion", america__asuncion )
+    , ( "America/Atikokan", america__atikokan )
     , ( "America/Atikokan", america__atikokan )
     , ( "America/Atka", america__atka )
     , ( "America/Bahia", america__bahia )
@@ -186,6 +234,7 @@ zones =
     , ( "America/Barbados", america__barbados )
     , ( "America/Belem", america__belem )
     , ( "America/Belize", america__belize )
+    , ( "America/Blanc-Sablon", america__blanc_sablon )
     , ( "America/Blanc-Sablon", america__blanc_sablon )
     , ( "America/Boa_Vista", america__boa_vista )
     , ( "America/Bogota", america__bogota )
@@ -198,15 +247,19 @@ zones =
     , ( "America/Catamarca", america__catamarca )
     , ( "America/Cayenne", america__cayenne )
     , ( "America/Cayman", america__cayman )
+    , ( "America/Cayman", america__cayman )
     , ( "America/Chicago", america__chicago )
     , ( "America/Chihuahua", america__chihuahua )
     , ( "America/Ciudad_Juarez", america__ciudad_juarez )
+    , ( "America/Coral_Harbour", america__coral_harbour )
     , ( "America/Coral_Harbour", america__coral_harbour )
     , ( "America/Cordoba", america__cordoba )
     , ( "America/Costa_Rica", america__costa_rica )
     , ( "America/Coyhaique", america__coyhaique )
     , ( "America/Creston", america__creston )
+    , ( "America/Creston", america__creston )
     , ( "America/Cuiaba", america__cuiaba )
+    , ( "America/Curacao", america__curacao )
     , ( "America/Curacao", america__curacao )
     , ( "America/Danmarkshavn", america__danmarkshavn )
     , ( "America/Dawson", america__dawson )
@@ -214,9 +267,11 @@ zones =
     , ( "America/Denver", america__denver )
     , ( "America/Detroit", america__detroit )
     , ( "America/Dominica", america__dominica )
+    , ( "America/Dominica", america__dominica )
     , ( "America/Edmonton", america__edmonton )
     , ( "America/Eirunepe", america__eirunepe )
     , ( "America/El_Salvador", america__el_salvador )
+    , ( "America/Ensenada", america__ensenada )
     , ( "America/Ensenada", america__ensenada )
     , ( "America/Fort_Nelson", america__fort_nelson )
     , ( "America/Fort_Wayne", america__fort_wayne )
@@ -226,6 +281,8 @@ zones =
     , ( "America/Goose_Bay", america__goose_bay )
     , ( "America/Grand_Turk", america__grand_turk )
     , ( "America/Grenada", america__grenada )
+    , ( "America/Grenada", america__grenada )
+    , ( "America/Guadeloupe", america__guadeloupe )
     , ( "America/Guadeloupe", america__guadeloupe )
     , ( "America/Guatemala", america__guatemala )
     , ( "America/Guayaquil", america__guayaquil )
@@ -273,9 +330,13 @@ zones =
     , ( "America/Monterrey", america__monterrey )
     , ( "America/Montevideo", america__montevideo )
     , ( "America/Montreal", america__montreal )
+    , ( "America/Montreal", america__montreal )
+    , ( "America/Montserrat", america__montserrat )
     , ( "America/Montserrat", america__montserrat )
     , ( "America/Nassau", america__nassau )
+    , ( "America/Nassau", america__nassau )
     , ( "America/New_York", america__new_york )
+    , ( "America/Nipigon", america__nipigon )
     , ( "America/Nipigon", america__nipigon )
     , ( "America/Nome", america__nome )
     , ( "America/Noronha", america__noronha )
@@ -286,20 +347,24 @@ zones =
     , ( "America/Ojinaga", america__ojinaga )
     , ( "America/Panama", america__panama )
     , ( "America/Pangnirtung", america__pangnirtung )
+    , ( "America/Pangnirtung", america__pangnirtung )
     , ( "America/Paramaribo", america__paramaribo )
     , ( "America/Phoenix", america__phoenix )
     , ( "America/Port-au-Prince", america__port_au_prince )
+    , ( "America/Port_of_Spain", america__port_of_spain )
     , ( "America/Port_of_Spain", america__port_of_spain )
     , ( "America/Porto_Acre", america__porto_acre )
     , ( "America/Porto_Velho", america__porto_velho )
     , ( "America/Puerto_Rico", america__puerto_rico )
     , ( "America/Punta_Arenas", america__punta_arenas )
     , ( "America/Rainy_River", america__rainy_river )
+    , ( "America/Rainy_River", america__rainy_river )
     , ( "America/Rankin_Inlet", america__rankin_inlet )
     , ( "America/Recife", america__recife )
     , ( "America/Regina", america__regina )
     , ( "America/Resolute", america__resolute )
     , ( "America/Rio_Branco", america__rio_branco )
+    , ( "America/Rosario", america__rosario )
     , ( "America/Rosario", america__rosario )
     , ( "America/Santa_Isabel", america__santa_isabel )
     , ( "America/Santarem", america__santarem )
@@ -312,15 +377,21 @@ zones =
     , ( "America/St_Barthelemy", america__st_barthelemy )
     , ( "America/St_Johns", america__st_johns )
     , ( "America/St_Kitts", america__st_kitts )
+    , ( "America/St_Kitts", america__st_kitts )
+    , ( "America/St_Lucia", america__st_lucia )
     , ( "America/St_Lucia", america__st_lucia )
     , ( "America/St_Thomas", america__st_thomas )
+    , ( "America/St_Thomas", america__st_thomas )
+    , ( "America/St_Vincent", america__st_vincent )
     , ( "America/St_Vincent", america__st_vincent )
     , ( "America/Swift_Current", america__swift_current )
     , ( "America/Tegucigalpa", america__tegucigalpa )
     , ( "America/Thule", america__thule )
     , ( "America/Thunder_Bay", america__thunder_bay )
+    , ( "America/Thunder_Bay", america__thunder_bay )
     , ( "America/Tijuana", america__tijuana )
     , ( "America/Toronto", america__toronto )
+    , ( "America/Tortola", america__tortola )
     , ( "America/Tortola", america__tortola )
     , ( "America/Vancouver", america__vancouver )
     , ( "America/Virgin", america__virgin )
@@ -328,19 +399,24 @@ zones =
     , ( "America/Winnipeg", america__winnipeg )
     , ( "America/Yakutat", america__yakutat )
     , ( "America/Yellowknife", america__yellowknife )
+    , ( "America/Yellowknife", america__yellowknife )
     , ( "Antarctica/Casey", antarctica__casey )
     , ( "Antarctica/Davis", antarctica__davis )
     , ( "Antarctica/DumontDUrville", antarctica__dumontdurville )
+    , ( "Antarctica/DumontDUrville", antarctica__dumontdurville )
     , ( "Antarctica/Macquarie", antarctica__macquarie )
     , ( "Antarctica/Mawson", antarctica__mawson )
+    , ( "Antarctica/McMurdo", antarctica__mcmurdo )
     , ( "Antarctica/McMurdo", antarctica__mcmurdo )
     , ( "Antarctica/Palmer", antarctica__palmer )
     , ( "Antarctica/Rothera", antarctica__rothera )
     , ( "Antarctica/South_Pole", antarctica__south_pole )
     , ( "Antarctica/Syowa", antarctica__syowa )
+    , ( "Antarctica/Syowa", antarctica__syowa )
     , ( "Antarctica/Troll", antarctica__troll )
     , ( "Antarctica/Vostok", antarctica__vostok )
     , ( "Arctic/Longyearbyen", arctic__longyearbyen )
+    , ( "Asia/Aden", asia__aden )
     , ( "Asia/Aden", asia__aden )
     , ( "Asia/Almaty", asia__almaty )
     , ( "Asia/Amman", asia__amman )
@@ -352,15 +428,18 @@ zones =
     , ( "Asia/Atyrau", asia__atyrau )
     , ( "Asia/Baghdad", asia__baghdad )
     , ( "Asia/Bahrain", asia__bahrain )
+    , ( "Asia/Bahrain", asia__bahrain )
     , ( "Asia/Baku", asia__baku )
     , ( "Asia/Bangkok", asia__bangkok )
     , ( "Asia/Barnaul", asia__barnaul )
     , ( "Asia/Beirut", asia__beirut )
     , ( "Asia/Bishkek", asia__bishkek )
     , ( "Asia/Brunei", asia__brunei )
+    , ( "Asia/Brunei", asia__brunei )
     , ( "Asia/Calcutta", asia__calcutta )
     , ( "Asia/Chita", asia__chita )
     , ( "Asia/Choibalsan", asia__choibalsan )
+    , ( "Asia/Chongqing", asia__chongqing )
     , ( "Asia/Chongqing", asia__chongqing )
     , ( "Asia/Chungking", asia__chungking )
     , ( "Asia/Colombo", asia__colombo )
@@ -372,6 +451,8 @@ zones =
     , ( "Asia/Dushanbe", asia__dushanbe )
     , ( "Asia/Famagusta", asia__famagusta )
     , ( "Asia/Gaza", asia__gaza )
+    , ( "Asia/Hanoi", asia__hanoi )
+    , ( "Asia/Harbin", asia__harbin )
     , ( "Asia/Harbin", asia__harbin )
     , ( "Asia/Hebron", asia__hebron )
     , ( "Asia/Ho_Chi_Minh", asia__ho_chi_minh )
@@ -386,13 +467,16 @@ zones =
     , ( "Asia/Kamchatka", asia__kamchatka )
     , ( "Asia/Karachi", asia__karachi )
     , ( "Asia/Kashgar", asia__kashgar )
+    , ( "Asia/Kashgar", asia__kashgar )
     , ( "Asia/Kathmandu", asia__kathmandu )
     , ( "Asia/Katmandu", asia__katmandu )
     , ( "Asia/Khandyga", asia__khandyga )
     , ( "Asia/Kolkata", asia__kolkata )
     , ( "Asia/Krasnoyarsk", asia__krasnoyarsk )
     , ( "Asia/Kuala_Lumpur", asia__kuala_lumpur )
+    , ( "Asia/Kuala_Lumpur", asia__kuala_lumpur )
     , ( "Asia/Kuching", asia__kuching )
+    , ( "Asia/Kuwait", asia__kuwait )
     , ( "Asia/Kuwait", asia__kuwait )
     , ( "Asia/Macao", asia__macao )
     , ( "Asia/Macau", asia__macau )
@@ -400,11 +484,13 @@ zones =
     , ( "Asia/Makassar", asia__makassar )
     , ( "Asia/Manila", asia__manila )
     , ( "Asia/Muscat", asia__muscat )
+    , ( "Asia/Muscat", asia__muscat )
     , ( "Asia/Nicosia", asia__nicosia )
     , ( "Asia/Novokuznetsk", asia__novokuznetsk )
     , ( "Asia/Novosibirsk", asia__novosibirsk )
     , ( "Asia/Omsk", asia__omsk )
     , ( "Asia/Oral", asia__oral )
+    , ( "Asia/Phnom_Penh", asia__phnom_penh )
     , ( "Asia/Phnom_Penh", asia__phnom_penh )
     , ( "Asia/Pontianak", asia__pontianak )
     , ( "Asia/Pyongyang", asia__pyongyang )
@@ -425,6 +511,7 @@ zones =
     , ( "Asia/Tbilisi", asia__tbilisi )
     , ( "Asia/Tehran", asia__tehran )
     , ( "Asia/Tel_Aviv", asia__tel_aviv )
+    , ( "Asia/Tel_Aviv", asia__tel_aviv )
     , ( "Asia/Thimbu", asia__thimbu )
     , ( "Asia/Thimphu", asia__thimphu )
     , ( "Asia/Tokyo", asia__tokyo )
@@ -434,6 +521,7 @@ zones =
     , ( "Asia/Ulan_Bator", asia__ulan_bator )
     , ( "Asia/Urumqi", asia__urumqi )
     , ( "Asia/Ust-Nera", asia__ust_nera )
+    , ( "Asia/Vientiane", asia__vientiane )
     , ( "Asia/Vientiane", asia__vientiane )
     , ( "Asia/Vladivostok", asia__vladivostok )
     , ( "Asia/Yakutsk", asia__yakutsk )
@@ -447,9 +535,12 @@ zones =
     , ( "Atlantic/Faeroe", atlantic__faeroe )
     , ( "Atlantic/Faroe", atlantic__faroe )
     , ( "Atlantic/Jan_Mayen", atlantic__jan_mayen )
+    , ( "Atlantic/Jan_Mayen", atlantic__jan_mayen )
     , ( "Atlantic/Madeira", atlantic__madeira )
     , ( "Atlantic/Reykjavik", atlantic__reykjavik )
+    , ( "Atlantic/Reykjavik", atlantic__reykjavik )
     , ( "Atlantic/South_Georgia", atlantic__south_georgia )
+    , ( "Atlantic/St_Helena", atlantic__st_helena )
     , ( "Atlantic/St_Helena", atlantic__st_helena )
     , ( "Atlantic/Stanley", atlantic__stanley )
     , ( "Australia/ACT", australia__act )
@@ -457,6 +548,7 @@ zones =
     , ( "Australia/Brisbane", australia__brisbane )
     , ( "Australia/Broken_Hill", australia__broken_hill )
     , ( "Australia/Canberra", australia__canberra )
+    , ( "Australia/Currie", australia__currie )
     , ( "Australia/Currie", australia__currie )
     , ( "Australia/Darwin", australia__darwin )
     , ( "Australia/Eucla", australia__eucla )
@@ -480,6 +572,8 @@ zones =
     , ( "Brazil/East", brazil__east )
     , ( "Brazil/West", brazil__west )
     , ( "CET", cet )
+    , ( "CET", cet )
+    , ( "CST6CDT", cst6cdt )
     , ( "CST6CDT", cst6cdt )
     , ( "Canada/Atlantic", canada__atlantic )
     , ( "Canada/Central", canada__central )
@@ -493,14 +587,54 @@ zones =
     , ( "Chile/EasterIsland", chile__easterisland )
     , ( "Cuba", cuba )
     , ( "EET", eet )
+    , ( "EET", eet )
     , ( "EST", est )
+    , ( "EST", est )
+    , ( "EST5EDT", est5edt )
     , ( "EST5EDT", est5edt )
     , ( "Egypt", egypt )
     , ( "Eire", eire )
+    , ( "Etc/GMT", etc__gmt )
+    , ( "Etc/GMT+0", etc__gmt_plus0 )
+    , ( "Etc/GMT+1", etc__gmt_plus1 )
+    , ( "Etc/GMT+10", etc__gmt_plus10 )
+    , ( "Etc/GMT+11", etc__gmt_plus11 )
+    , ( "Etc/GMT+12", etc__gmt_plus12 )
+    , ( "Etc/GMT+2", etc__gmt_plus2 )
+    , ( "Etc/GMT+3", etc__gmt_plus3 )
+    , ( "Etc/GMT+4", etc__gmt_plus4 )
+    , ( "Etc/GMT+5", etc__gmt_plus5 )
+    , ( "Etc/GMT+6", etc__gmt_plus6 )
+    , ( "Etc/GMT+7", etc__gmt_plus7 )
+    , ( "Etc/GMT+8", etc__gmt_plus8 )
+    , ( "Etc/GMT+9", etc__gmt_plus9 )
+    , ( "Etc/GMT-0", etc__gmt_0 )
+    , ( "Etc/GMT-1", etc__gmt_1 )
+    , ( "Etc/GMT-10", etc__gmt_10 )
+    , ( "Etc/GMT-11", etc__gmt_11 )
+    , ( "Etc/GMT-12", etc__gmt_12 )
+    , ( "Etc/GMT-13", etc__gmt_13 )
+    , ( "Etc/GMT-14", etc__gmt_14 )
+    , ( "Etc/GMT-2", etc__gmt_2 )
+    , ( "Etc/GMT-3", etc__gmt_3 )
+    , ( "Etc/GMT-4", etc__gmt_4 )
+    , ( "Etc/GMT-5", etc__gmt_5 )
+    , ( "Etc/GMT-6", etc__gmt_6 )
+    , ( "Etc/GMT-7", etc__gmt_7 )
+    , ( "Etc/GMT-8", etc__gmt_8 )
+    , ( "Etc/GMT-9", etc__gmt_9 )
+    , ( "Etc/GMT0", etc__gmt0 )
+    , ( "Etc/Greenwich", etc__greenwich )
+    , ( "Etc/UCT", etc__uct )
+    , ( "Etc/UTC", etc__utc )
+    , ( "Etc/Universal", etc__universal )
+    , ( "Etc/Zulu", etc__zulu )
+    , ( "Europe/Amsterdam", europe__amsterdam )
     , ( "Europe/Amsterdam", europe__amsterdam )
     , ( "Europe/Andorra", europe__andorra )
     , ( "Europe/Astrakhan", europe__astrakhan )
     , ( "Europe/Athens", europe__athens )
+    , ( "Europe/Belfast", europe__belfast )
     , ( "Europe/Belfast", europe__belfast )
     , ( "Europe/Belgrade", europe__belgrade )
     , ( "Europe/Berlin", europe__berlin )
@@ -511,12 +645,16 @@ zones =
     , ( "Europe/Busingen", europe__busingen )
     , ( "Europe/Chisinau", europe__chisinau )
     , ( "Europe/Copenhagen", europe__copenhagen )
+    , ( "Europe/Copenhagen", europe__copenhagen )
     , ( "Europe/Dublin", europe__dublin )
     , ( "Europe/Gibraltar", europe__gibraltar )
     , ( "Europe/Guernsey", europe__guernsey )
+    , ( "Europe/Guernsey", europe__guernsey )
     , ( "Europe/Helsinki", europe__helsinki )
     , ( "Europe/Isle_of_Man", europe__isle_of_man )
+    , ( "Europe/Isle_of_Man", europe__isle_of_man )
     , ( "Europe/Istanbul", europe__istanbul )
+    , ( "Europe/Jersey", europe__jersey )
     , ( "Europe/Jersey", europe__jersey )
     , ( "Europe/Kaliningrad", europe__kaliningrad )
     , ( "Europe/Kiev", europe__kiev )
@@ -524,15 +662,19 @@ zones =
     , ( "Europe/Kyiv", europe__kyiv )
     , ( "Europe/Lisbon", europe__lisbon )
     , ( "Europe/Ljubljana", europe__ljubljana )
+    , ( "Europe/Ljubljana", europe__ljubljana )
     , ( "Europe/London", europe__london )
+    , ( "Europe/Luxembourg", europe__luxembourg )
     , ( "Europe/Luxembourg", europe__luxembourg )
     , ( "Europe/Madrid", europe__madrid )
     , ( "Europe/Malta", europe__malta )
     , ( "Europe/Mariehamn", europe__mariehamn )
     , ( "Europe/Minsk", europe__minsk )
     , ( "Europe/Monaco", europe__monaco )
+    , ( "Europe/Monaco", europe__monaco )
     , ( "Europe/Moscow", europe__moscow )
     , ( "Europe/Nicosia", europe__nicosia )
+    , ( "Europe/Oslo", europe__oslo )
     , ( "Europe/Oslo", europe__oslo )
     , ( "Europe/Paris", europe__paris )
     , ( "Europe/Podgorica", europe__podgorica )
@@ -542,16 +684,22 @@ zones =
     , ( "Europe/Samara", europe__samara )
     , ( "Europe/San_Marino", europe__san_marino )
     , ( "Europe/Sarajevo", europe__sarajevo )
+    , ( "Europe/Sarajevo", europe__sarajevo )
     , ( "Europe/Saratov", europe__saratov )
     , ( "Europe/Simferopol", europe__simferopol )
     , ( "Europe/Skopje", europe__skopje )
+    , ( "Europe/Skopje", europe__skopje )
     , ( "Europe/Sofia", europe__sofia )
+    , ( "Europe/Stockholm", europe__stockholm )
     , ( "Europe/Stockholm", europe__stockholm )
     , ( "Europe/Tallinn", europe__tallinn )
     , ( "Europe/Tirane", europe__tirane )
     , ( "Europe/Tiraspol", europe__tiraspol )
+    , ( "Europe/Tiraspol", europe__tiraspol )
     , ( "Europe/Ulyanovsk", europe__ulyanovsk )
     , ( "Europe/Uzhgorod", europe__uzhgorod )
+    , ( "Europe/Uzhgorod", europe__uzhgorod )
+    , ( "Europe/Vaduz", europe__vaduz )
     , ( "Europe/Vaduz", europe__vaduz )
     , ( "Europe/Vatican", europe__vatican )
     , ( "Europe/Vienna", europe__vienna )
@@ -559,23 +707,39 @@ zones =
     , ( "Europe/Volgograd", europe__volgograd )
     , ( "Europe/Warsaw", europe__warsaw )
     , ( "Europe/Zagreb", europe__zagreb )
+    , ( "Europe/Zagreb", europe__zagreb )
+    , ( "Europe/Zaporozhye", europe__zaporozhye )
     , ( "Europe/Zaporozhye", europe__zaporozhye )
     , ( "Europe/Zurich", europe__zurich )
     , ( "GB", gb )
     , ( "GB-Eire", gb_eire )
+    , ( "GMT", gmt )
+    , ( "GMT+0", gmt_plus0 )
+    , ( "GMT-0", gmt_0 )
+    , ( "GMT0", gmt0 )
+    , ( "Greenwich", greenwich )
+    , ( "HST", hst )
     , ( "HST", hst )
     , ( "Hongkong", hongkong )
     , ( "Iceland", iceland )
     , ( "Indian/Antananarivo", indian__antananarivo )
+    , ( "Indian/Antananarivo", indian__antananarivo )
     , ( "Indian/Chagos", indian__chagos )
     , ( "Indian/Christmas", indian__christmas )
+    , ( "Indian/Christmas", indian__christmas )
+    , ( "Indian/Cocos", indian__cocos )
     , ( "Indian/Cocos", indian__cocos )
     , ( "Indian/Comoro", indian__comoro )
+    , ( "Indian/Comoro", indian__comoro )
     , ( "Indian/Kerguelen", indian__kerguelen )
+    , ( "Indian/Kerguelen", indian__kerguelen )
+    , ( "Indian/Mahe", indian__mahe )
     , ( "Indian/Mahe", indian__mahe )
     , ( "Indian/Maldives", indian__maldives )
     , ( "Indian/Mauritius", indian__mauritius )
     , ( "Indian/Mayotte", indian__mayotte )
+    , ( "Indian/Mayotte", indian__mayotte )
+    , ( "Indian/Reunion", indian__reunion )
     , ( "Indian/Reunion", indian__reunion )
     , ( "Iran", iran )
     , ( "Israel", israel )
@@ -584,7 +748,10 @@ zones =
     , ( "Kwajalein", kwajalein )
     , ( "Libya", libya )
     , ( "MET", met )
+    , ( "MET", met )
     , ( "MST", mst )
+    , ( "MST", mst )
+    , ( "MST7MDT", mst7mdt )
     , ( "MST7MDT", mst7mdt )
     , ( "Mexico/BajaNorte", mexico__bajanorte )
     , ( "Mexico/BajaSur", mexico__bajasur )
@@ -594,16 +761,20 @@ zones =
     , ( "Navajo", navajo )
     , ( "PRC", prc )
     , ( "PST8PDT", pst8pdt )
+    , ( "PST8PDT", pst8pdt )
     , ( "Pacific/Apia", pacific__apia )
     , ( "Pacific/Auckland", pacific__auckland )
     , ( "Pacific/Bougainville", pacific__bougainville )
     , ( "Pacific/Chatham", pacific__chatham )
     , ( "Pacific/Chuuk", pacific__chuuk )
+    , ( "Pacific/Chuuk", pacific__chuuk )
     , ( "Pacific/Easter", pacific__easter )
     , ( "Pacific/Efate", pacific__efate )
     , ( "Pacific/Enderbury", pacific__enderbury )
+    , ( "Pacific/Enderbury", pacific__enderbury )
     , ( "Pacific/Fakaofo", pacific__fakaofo )
     , ( "Pacific/Fiji", pacific__fiji )
+    , ( "Pacific/Funafuti", pacific__funafuti )
     , ( "Pacific/Funafuti", pacific__funafuti )
     , ( "Pacific/Galapagos", pacific__galapagos )
     , ( "Pacific/Gambier", pacific__gambier )
@@ -611,12 +782,15 @@ zones =
     , ( "Pacific/Guam", pacific__guam )
     , ( "Pacific/Honolulu", pacific__honolulu )
     , ( "Pacific/Johnston", pacific__johnston )
+    , ( "Pacific/Johnston", pacific__johnston )
     , ( "Pacific/Kanton", pacific__kanton )
     , ( "Pacific/Kiritimati", pacific__kiritimati )
     , ( "Pacific/Kosrae", pacific__kosrae )
     , ( "Pacific/Kwajalein", pacific__kwajalein )
     , ( "Pacific/Majuro", pacific__majuro )
+    , ( "Pacific/Majuro", pacific__majuro )
     , ( "Pacific/Marquesas", pacific__marquesas )
+    , ( "Pacific/Midway", pacific__midway )
     , ( "Pacific/Midway", pacific__midway )
     , ( "Pacific/Nauru", pacific__nauru )
     , ( "Pacific/Niue", pacific__niue )
@@ -626,9 +800,11 @@ zones =
     , ( "Pacific/Palau", pacific__palau )
     , ( "Pacific/Pitcairn", pacific__pitcairn )
     , ( "Pacific/Pohnpei", pacific__pohnpei )
+    , ( "Pacific/Pohnpei", pacific__pohnpei )
     , ( "Pacific/Ponape", pacific__ponape )
     , ( "Pacific/Port_Moresby", pacific__port_moresby )
     , ( "Pacific/Rarotonga", pacific__rarotonga )
+    , ( "Pacific/Saipan", pacific__saipan )
     , ( "Pacific/Saipan", pacific__saipan )
     , ( "Pacific/Samoa", pacific__samoa )
     , ( "Pacific/Tahiti", pacific__tahiti )
@@ -636,6 +812,8 @@ zones =
     , ( "Pacific/Tongatapu", pacific__tongatapu )
     , ( "Pacific/Truk", pacific__truk )
     , ( "Pacific/Wake", pacific__wake )
+    , ( "Pacific/Wake", pacific__wake )
+    , ( "Pacific/Wallis", pacific__wallis )
     , ( "Pacific/Wallis", pacific__wallis )
     , ( "Pacific/Yap", pacific__yap )
     , ( "Poland", poland )
@@ -644,6 +822,7 @@ zones =
     , ( "ROK", rok )
     , ( "Singapore", singapore )
     , ( "Turkey", turkey )
+    , ( "UCT", uct )
     , ( "US/Alaska", us__alaska )
     , ( "US/Aleutian", us__aleutian )
     , ( "US/Arizona", us__arizona )
@@ -656,8 +835,12 @@ zones =
     , ( "US/Mountain", us__mountain )
     , ( "US/Pacific", us__pacific )
     , ( "US/Samoa", us__samoa )
+    , ( "UTC", utc )
+    , ( "Universal", universal )
     , ( "W-SU", w_su )
     , ( "WET", wet )
+    , ( "WET", wet )
+    , ( "Zulu", zulu )
     ]
         |> Dict.fromList
 
@@ -844,6 +1027,13 @@ rules_Azer : List Rule
 rules_Azer =
     [ Rule 1997 2015 Mar (Last Sun) 240 WallClock 60
     , Rule 1997 2015 Oct (Last Sun) 300 WallClock 0
+    ]
+
+
+rules_Bahamas : List Rule
+rules_Bahamas =
+    [ Rule 1964 1975 Oct (Last Sun) 120 WallClock 0
+    , Rule 1964 1975 Apr (Last Sun) 120 WallClock 60
     ]
 
 
@@ -1588,6 +1778,13 @@ rules_Mongol =
     ]
 
 
+rules_Mont : List Rule
+rules_Mont =
+    [ Rule 1946 1973 Apr (Last Sun) 120 WallClock 60
+    , Rule 1957 1973 Oct (Last Sun) 120 WallClock 0
+    ]
+
+
 rules_Morocco : List Rule
 rules_Morocco =
     [ Rule 1974 1974 Jun (Day 24) 0 WallClock 60
@@ -2229,6 +2426,26 @@ africa__abidjan _ =
             (ZoneState 0 (Save 0))
 
 
+{-| `Africa/Accra`
+-}
+africa__accra : () -> Time.Zone
+africa__accra _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 0 (Save 0))
+
+
+{-| `Africa/Addis_Ababa`
+-}
+africa__addis_ababa : () -> Time.Zone
+africa__addis_ababa _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 180 (Save 0))
+
+
 {-| `Africa/Algiers`
 -}
 africa__algiers : () -> Time.Zone
@@ -2242,6 +2459,46 @@ africa__algiers _ =
             (ZoneState 60 (Save 0))
 
 
+{-| `Africa/Asmara`
+-}
+africa__asmara : () -> Time.Zone
+africa__asmara _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 180 (Save 0))
+
+
+{-| `Africa/Bamako`
+-}
+africa__bamako : () -> Time.Zone
+africa__bamako _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 0 (Save 0))
+
+
+{-| `Africa/Bangui`
+-}
+africa__bangui : () -> Time.Zone
+africa__bangui _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 60 (Save 0))
+
+
+{-| `Africa/Banjul`
+-}
+africa__banjul : () -> Time.Zone
+africa__banjul _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 0 (Save 0))
+
+
 {-| `Africa/Bissau`
 -}
 africa__bissau : () -> Time.Zone
@@ -2251,6 +2508,36 @@ africa__bissau _ =
             [ ( ZoneState -60 (Save 0), DateTime 1975 Jan 1 0 WallClock )
             ]
             (ZoneState 0 (Save 0))
+
+
+{-| `Africa/Blantyre`
+-}
+africa__blantyre : () -> Time.Zone
+africa__blantyre _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 120 (Save 0))
+
+
+{-| `Africa/Brazzaville`
+-}
+africa__brazzaville : () -> Time.Zone
+africa__brazzaville _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 60 (Save 0))
+
+
+{-| `Africa/Bujumbura`
+-}
+africa__bujumbura : () -> Time.Zone
+africa__bujumbura _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 120 (Save 0))
 
 
 {-| `Africa/Cairo`
@@ -2288,6 +2575,56 @@ africa__ceuta _ =
             (ZoneState 60 (Rules rules_EU))
 
 
+{-| `Africa/Conakry`
+-}
+africa__conakry : () -> Time.Zone
+africa__conakry _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 0 (Save 0))
+
+
+{-| `Africa/Dakar`
+-}
+africa__dakar : () -> Time.Zone
+africa__dakar _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 0 (Save 0))
+
+
+{-| `Africa/Dar_es_Salaam`
+-}
+africa__dar_es_salaam : () -> Time.Zone
+africa__dar_es_salaam _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 180 (Save 0))
+
+
+{-| `Africa/Djibouti`
+-}
+africa__djibouti : () -> Time.Zone
+africa__djibouti _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 180 (Save 0))
+
+
+{-| `Africa/Douala`
+-}
+africa__douala : () -> Time.Zone
+africa__douala _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 60 (Save 0))
+
+
 {-| `Africa/El_Aaiun`
 -}
 africa__el_aaiun : () -> Time.Zone
@@ -2298,6 +2635,36 @@ africa__el_aaiun _ =
             , ( ZoneState 0 (Rules rules_Morocco), DateTime 2018 Oct 28 180 WallClock )
             ]
             (ZoneState 60 (Rules rules_Morocco))
+
+
+{-| `Africa/Freetown`
+-}
+africa__freetown : () -> Time.Zone
+africa__freetown _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 0 (Save 0))
+
+
+{-| `Africa/Gaborone`
+-}
+africa__gaborone : () -> Time.Zone
+africa__gaborone _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 120 (Save 0))
+
+
+{-| `Africa/Harare`
+-}
+africa__harare : () -> Time.Zone
+africa__harare _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 120 (Save 0))
 
 
 {-| `Africa/Johannesburg`
@@ -2322,6 +2689,16 @@ africa__juba _ =
             (ZoneState 120 (Save 0))
 
 
+{-| `Africa/Kampala`
+-}
+africa__kampala : () -> Time.Zone
+africa__kampala _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 180 (Save 0))
+
+
 {-| `Africa/Khartoum`
 -}
 africa__khartoum : () -> Time.Zone
@@ -2334,10 +2711,90 @@ africa__khartoum _ =
             (ZoneState 120 (Save 0))
 
 
+{-| `Africa/Kigali`
+-}
+africa__kigali : () -> Time.Zone
+africa__kigali _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 120 (Save 0))
+
+
+{-| `Africa/Kinshasa`
+-}
+africa__kinshasa : () -> Time.Zone
+africa__kinshasa _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 60 (Save 0))
+
+
 {-| `Africa/Lagos`
 -}
 africa__lagos : () -> Time.Zone
 africa__lagos _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 60 (Save 0))
+
+
+{-| `Africa/Libreville`
+-}
+africa__libreville : () -> Time.Zone
+africa__libreville _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 60 (Save 0))
+
+
+{-| `Africa/Lome`
+-}
+africa__lome : () -> Time.Zone
+africa__lome _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 0 (Save 0))
+
+
+{-| `Africa/Luanda`
+-}
+africa__luanda : () -> Time.Zone
+africa__luanda _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 60 (Save 0))
+
+
+{-| `Africa/Lubumbashi`
+-}
+africa__lubumbashi : () -> Time.Zone
+africa__lubumbashi _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 120 (Save 0))
+
+
+{-| `Africa/Lusaka`
+-}
+africa__lusaka : () -> Time.Zone
+africa__lusaka _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 120 (Save 0))
+
+
+{-| `Africa/Malabo`
+-}
+africa__malabo : () -> Time.Zone
+africa__malabo _ =
     fromSpecification <|
         Zone
             []
@@ -2352,6 +2809,36 @@ africa__maputo _ =
         Zone
             []
             (ZoneState 120 (Save 0))
+
+
+{-| `Africa/Maseru`
+-}
+africa__maseru : () -> Time.Zone
+africa__maseru _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 120 (Save 0))
+
+
+{-| `Africa/Mbabane`
+-}
+africa__mbabane : () -> Time.Zone
+africa__mbabane _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 120 (Save 0))
+
+
+{-| `Africa/Mogadishu`
+-}
+africa__mogadishu : () -> Time.Zone
+africa__mogadishu _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 180 (Save 0))
 
 
 {-| `Africa/Monrovia`
@@ -2387,6 +2874,46 @@ africa__ndjamena _ =
             (ZoneState 60 (Save 0))
 
 
+{-| `Africa/Niamey`
+-}
+africa__niamey : () -> Time.Zone
+africa__niamey _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 60 (Save 0))
+
+
+{-| `Africa/Nouakchott`
+-}
+africa__nouakchott : () -> Time.Zone
+africa__nouakchott _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 0 (Save 0))
+
+
+{-| `Africa/Ouagadougou`
+-}
+africa__ouagadougou : () -> Time.Zone
+africa__ouagadougou _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 0 (Save 0))
+
+
+{-| `Africa/Porto-Novo`
+-}
+africa__porto_novo : () -> Time.Zone
+africa__porto_novo _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 60 (Save 0))
+
+
 {-| `Africa/Sao_Tome`
 -}
 africa__sao_tome : () -> Time.Zone
@@ -2396,6 +2923,16 @@ africa__sao_tome _ =
             [ ( ZoneState 0 (Save 0), DateTime 2018 Jan 1 60 WallClock )
             , ( ZoneState 60 (Save 0), DateTime 2019 Jan 1 120 WallClock )
             ]
+            (ZoneState 0 (Save 0))
+
+
+{-| `Africa/Timbuktu`
+-}
+africa__timbuktu : () -> Time.Zone
+africa__timbuktu _ =
+    fromSpecification <|
+        Zone
+            []
             (ZoneState 0 (Save 0))
 
 
@@ -2460,6 +2997,26 @@ america__anchorage _ =
             (ZoneState -540 (Rules rules_US))
 
 
+{-| `America/Anguilla`
+-}
+america__anguilla : () -> Time.Zone
+america__anguilla _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -240 (Save 0))
+
+
+{-| `America/Antigua`
+-}
+america__antigua : () -> Time.Zone
+america__antigua _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -240 (Save 0))
+
+
 {-| `America/Araguaina`
 -}
 america__araguaina : () -> Time.Zone
@@ -2500,6 +3057,22 @@ america__argentina__catamarca _ =
             , ( ZoneState -180 (Save 0), DateTime 2004 Jun 1 0 WallClock )
             , ( ZoneState -240 (Save 0), DateTime 2004 Jun 20 0 WallClock )
             , ( ZoneState -180 (Rules rules_Arg), DateTime 2008 Oct 18 0 WallClock )
+            ]
+            (ZoneState -180 (Save 0))
+
+
+{-| `America/Argentina/ComodRivadavia`
+-}
+america__argentina__comodrivadavia : () -> Time.Zone
+america__argentina__comodrivadavia _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState -180 (Save 0), DateTime 1991 Mar 3 0 WallClock )
+            , ( ZoneState -240 (Save 0), DateTime 1991 Oct 20 0 WallClock )
+            , ( ZoneState -180 (Save 0), DateTime 1999 Oct 3 0 WallClock )
+            , ( ZoneState -240 (Save 0), DateTime 2000 Mar 3 0 WallClock )
+            , ( ZoneState -180 (Save 0), DateTime 2004 Jun 1 0 WallClock )
+            , ( ZoneState -240 (Save 0), DateTime 2004 Jun 20 0 WallClock )
             ]
             (ZoneState -180 (Save 0))
 
@@ -2673,6 +3246,16 @@ america__argentina__ushuaia _ =
             (ZoneState -180 (Save 0))
 
 
+{-| `America/Aruba`
+-}
+america__aruba : () -> Time.Zone
+america__aruba _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -240 (Save 0))
+
+
 {-| `America/Asuncion`
 -}
 america__asuncion : () -> Time.Zone
@@ -2684,6 +3267,16 @@ america__asuncion _ =
             , ( ZoneState -240 (Rules rules_Para), DateTime 2024 Oct 15 0 WallClock )
             ]
             (ZoneState -180 (Save 0))
+
+
+{-| `America/Atikokan`
+-}
+america__atikokan : () -> Time.Zone
+america__atikokan _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -300 (Save 0))
 
 
 {-| `America/Bahia`
@@ -2740,6 +3333,17 @@ america__belize _ =
         Zone
             []
             (ZoneState -360 (Rules rules_Belize))
+
+
+{-| `America/Blanc-Sablon`
+-}
+america__blanc_sablon : () -> Time.Zone
+america__blanc_sablon _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState -240 (Save 0), DateTime 1970 Jan 1 0 WallClock )
+            ]
+            (ZoneState -240 (Save 0))
 
 
 {-| `America/Boa_Vista`
@@ -2838,6 +3442,16 @@ america__cayenne _ =
             (ZoneState -180 (Save 0))
 
 
+{-| `America/Cayman`
+-}
+america__cayman : () -> Time.Zone
+america__cayman _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -300 (Save 0))
+
+
 {-| `America/Chicago`
 -}
 america__chicago : () -> Time.Zone
@@ -2878,6 +3492,16 @@ america__ciudad_juarez _ =
             (ZoneState -420 (Rules rules_US))
 
 
+{-| `America/Coral_Harbour`
+-}
+america__coral_harbour : () -> Time.Zone
+america__coral_harbour _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -300 (Save 0))
+
+
 {-| `America/Costa_Rica`
 -}
 america__costa_rica : () -> Time.Zone
@@ -2899,6 +3523,16 @@ america__coyhaique _ =
             (ZoneState -180 (Save 0))
 
 
+{-| `America/Creston`
+-}
+america__creston : () -> Time.Zone
+america__creston _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -420 (Save 0))
+
+
 {-| `America/Cuiaba`
 -}
 america__cuiaba : () -> Time.Zone
@@ -2909,6 +3543,16 @@ america__cuiaba _ =
             , ( ZoneState -240 (Save 0), DateTime 2004 Oct 1 0 WallClock )
             ]
             (ZoneState -240 (Rules rules_Brazil))
+
+
+{-| `America/Curacao`
+-}
+america__curacao : () -> Time.Zone
+america__curacao _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -240 (Save 0))
 
 
 {-| `America/Danmarkshavn`
@@ -2970,6 +3614,16 @@ america__detroit _ =
             (ZoneState -300 (Rules rules_US))
 
 
+{-| `America/Dominica`
+-}
+america__dominica : () -> Time.Zone
+america__dominica _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -240 (Save 0))
+
+
 {-| `America/Edmonton`
 -}
 america__edmonton : () -> Time.Zone
@@ -3004,6 +3658,17 @@ america__el_salvador _ =
         Zone
             []
             (ZoneState -360 (Rules rules_Salv))
+
+
+{-| `America/Ensenada`
+-}
+america__ensenada : () -> Time.Zone
+america__ensenada _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState -480 (Save 0), DateTime 1996 Jan 1 0 WallClock )
+            ]
+            (ZoneState -480 (Save 0))
 
 
 {-| `America/Fort_Nelson`
@@ -3067,6 +3732,26 @@ america__grand_turk _ =
             , ( ZoneState -240 (Save 0), DateTime 2018 Mar 11 180 WallClock )
             ]
             (ZoneState -300 (Rules rules_US))
+
+
+{-| `America/Grenada`
+-}
+america__grenada : () -> Time.Zone
+america__grenada _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -240 (Save 0))
+
+
+{-| `America/Guadeloupe`
+-}
+america__guadeloupe : () -> Time.Zone
+america__guadeloupe _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -240 (Save 0))
 
 
 {-| `America/Guatemala`
@@ -3520,6 +4205,38 @@ america__montevideo _ =
             (ZoneState -180 (Rules rules_Uruguay))
 
 
+{-| `America/Montreal`
+-}
+america__montreal : () -> Time.Zone
+america__montreal _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState -300 (Rules rules_Mont), DateTime 1974 Jan 1 0 WallClock )
+            ]
+            (ZoneState -300 (Save 0))
+
+
+{-| `America/Montserrat`
+-}
+america__montserrat : () -> Time.Zone
+america__montserrat _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -240 (Save 0))
+
+
+{-| `America/Nassau`
+-}
+america__nassau : () -> Time.Zone
+america__nassau _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState -300 (Rules rules_Bahamas), DateTime 1976 Jan 1 0 WallClock )
+            ]
+            (ZoneState -300 (Save 0))
+
+
 {-| `America/New_York`
 -}
 america__new_york : () -> Time.Zone
@@ -3528,6 +4245,16 @@ america__new_york _ =
         Zone
             []
             (ZoneState -300 (Rules rules_US))
+
+
+{-| `America/Nipigon`
+-}
+america__nipigon : () -> Time.Zone
+america__nipigon _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -300 (Save 0))
 
 
 {-| `America/Nome`
@@ -3629,6 +4356,18 @@ america__panama _ =
             (ZoneState -300 (Save 0))
 
 
+{-| `America/Pangnirtung`
+-}
+america__pangnirtung : () -> Time.Zone
+america__pangnirtung _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState -300 (Save 0), DateTime 1999 Oct 31 120 WallClock )
+            , ( ZoneState -360 (Save 0), DateTime 2000 Oct 29 120 WallClock )
+            ]
+            (ZoneState -300 (Save 0))
+
+
 {-| `America/Paramaribo`
 -}
 america__paramaribo : () -> Time.Zone
@@ -3658,6 +4397,16 @@ america__port_au_prince _ =
         Zone
             []
             (ZoneState -300 (Rules rules_Haiti))
+
+
+{-| `America/Port_of_Spain`
+-}
+america__port_of_spain : () -> Time.Zone
+america__port_of_spain _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -240 (Save 0))
 
 
 {-| `America/Porto_Velho`
@@ -3690,6 +4439,16 @@ america__punta_arenas _ =
             [ ( ZoneState -240 (Rules rules_Chile), DateTime 2016 Dec 4 0 WallClock )
             ]
             (ZoneState -180 (Save 0))
+
+
+{-| `America/Rainy_River`
+-}
+america__rainy_river : () -> Time.Zone
+america__rainy_river _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -360 (Save 0))
 
 
 {-| `America/Rankin_Inlet`
@@ -3754,6 +4513,19 @@ america__rio_branco _ =
             , ( ZoneState -240 (Save 0), DateTime 2013 Nov 10 0 WallClock )
             ]
             (ZoneState -300 (Save 0))
+
+
+{-| `America/Rosario`
+-}
+america__rosario : () -> Time.Zone
+america__rosario _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState -180 (Save 0), DateTime 1991 Jul 1 0 WallClock )
+            , ( ZoneState -180 (Save 0), DateTime 1999 Oct 3 0 WallClock )
+            , ( ZoneState -240 (Save 0), DateTime 2000 Mar 3 0 WallClock )
+            ]
+            (ZoneState -180 (Save 0))
 
 
 {-| `America/Santarem`
@@ -3837,6 +4609,46 @@ america__st_johns _ =
             (ZoneState -210 (Rules rules_Canada))
 
 
+{-| `America/St_Kitts`
+-}
+america__st_kitts : () -> Time.Zone
+america__st_kitts _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -240 (Save 0))
+
+
+{-| `America/St_Lucia`
+-}
+america__st_lucia : () -> Time.Zone
+america__st_lucia _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -240 (Save 0))
+
+
+{-| `America/St_Thomas`
+-}
+america__st_thomas : () -> Time.Zone
+america__st_thomas _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -240 (Save 0))
+
+
+{-| `America/St_Vincent`
+-}
+america__st_vincent : () -> Time.Zone
+america__st_vincent _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -240 (Save 0))
+
+
 {-| `America/Swift_Current`
 -}
 america__swift_current : () -> Time.Zone
@@ -3868,13 +4680,26 @@ america__thule _ =
             (ZoneState -240 (Rules rules_Thule))
 
 
+{-| `America/Thunder_Bay`
+-}
+america__thunder_bay : () -> Time.Zone
+america__thunder_bay _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState -300 (Save 0), DateTime 1970 Jan 1 0 WallClock )
+            , ( ZoneState -300 (Save 0), DateTime 1974 Jan 1 0 WallClock )
+            ]
+            (ZoneState -300 (Save 0))
+
+
 {-| `America/Tijuana`
 -}
 america__tijuana : () -> Time.Zone
 america__tijuana _ =
     fromSpecification <|
         Zone
-            [ ( ZoneState -480 (Rules rules_US), DateTime 1996 Jan 1 0 WallClock )
+            [ ( ZoneState -480 (Save 0), DateTime 1976 Jan 1 0 WallClock )
+            , ( ZoneState -480 (Rules rules_US), DateTime 1996 Jan 1 0 WallClock )
             , ( ZoneState -480 (Rules rules_Mexico), DateTime 2001 Jan 1 0 WallClock )
             , ( ZoneState -480 (Rules rules_US), DateTime 2002 Feb 20 0 WallClock )
             , ( ZoneState -480 (Rules rules_Mexico), DateTime 2010 Jan 1 0 WallClock )
@@ -3891,6 +4716,16 @@ america__toronto _ =
             [ ( ZoneState -300 (Rules rules_Toronto), DateTime 1974 Jan 1 0 WallClock )
             ]
             (ZoneState -300 (Rules rules_Canada))
+
+
+{-| `America/Tortola`
+-}
+america__tortola : () -> Time.Zone
+america__tortola _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -240 (Save 0))
 
 
 {-| `America/Vancouver`
@@ -3938,6 +4773,17 @@ america__yakutat _ =
             (ZoneState -540 (Rules rules_US))
 
 
+{-| `America/Yellowknife`
+-}
+america__yellowknife : () -> Time.Zone
+america__yellowknife _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState -420 (Save 0), DateTime 1980 Jan 1 0 WallClock )
+            ]
+            (ZoneState -420 (Save 0))
+
+
 {-| `Antarctica/Casey`
 -}
 antarctica__casey : () -> Time.Zone
@@ -3978,6 +4824,16 @@ antarctica__davis _ =
             (ZoneState 420 (Save 0))
 
 
+{-| `Antarctica/DumontDUrville`
+-}
+antarctica__dumontdurville : () -> Time.Zone
+antarctica__dumontdurville _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 600 (Save 0))
+
+
 {-| `Antarctica/Macquarie`
 -}
 antarctica__macquarie : () -> Time.Zone
@@ -3999,6 +4855,16 @@ antarctica__mawson _ =
             [ ( ZoneState 360 (Save 0), DateTime 2009 Oct 18 120 WallClock )
             ]
             (ZoneState 300 (Save 0))
+
+
+{-| `Antarctica/McMurdo`
+-}
+antarctica__mcmurdo : () -> Time.Zone
+antarctica__mcmurdo _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 720 (Save 0))
 
 
 {-| `Antarctica/Palmer`
@@ -4024,6 +4890,16 @@ antarctica__rothera _ =
             (ZoneState -180 (Save 0))
 
 
+{-| `Antarctica/Syowa`
+-}
+antarctica__syowa : () -> Time.Zone
+antarctica__syowa _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 180 (Save 0))
+
+
 {-| `Antarctica/Troll`
 -}
 antarctica__troll : () -> Time.Zone
@@ -4046,6 +4922,16 @@ antarctica__vostok _ =
             , ( ZoneState 420 (Save 0), DateTime 2023 Dec 18 120 WallClock )
             ]
             (ZoneState 300 (Save 0))
+
+
+{-| `Asia/Aden`
+-}
+asia__aden : () -> Time.Zone
+asia__aden _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 180 (Save 0))
 
 
 {-| `Asia/Almaty`
@@ -4159,6 +5045,17 @@ asia__baghdad _ =
             (ZoneState 180 (Rules rules_Iraq))
 
 
+{-| `Asia/Bahrain`
+-}
+asia__bahrain : () -> Time.Zone
+asia__bahrain _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 240 (Save 0), DateTime 1972 Jun 1 0 WallClock )
+            ]
+            (ZoneState 180 (Save 0))
+
+
 {-| `Asia/Baku`
 -}
 asia__baku : () -> Time.Zone
@@ -4222,6 +5119,16 @@ asia__bishkek _ =
             (ZoneState 360 (Save 0))
 
 
+{-| `Asia/Brunei`
+-}
+asia__brunei : () -> Time.Zone
+asia__brunei _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 480 (Save 0))
+
+
 {-| `Asia/Chita`
 -}
 asia__chita : () -> Time.Zone
@@ -4235,6 +5142,17 @@ asia__chita _ =
             , ( ZoneState 480 (Save 0), DateTime 2016 Mar 27 120 WallClock )
             ]
             (ZoneState 540 (Save 0))
+
+
+{-| `Asia/Chongqing`
+-}
+asia__chongqing : () -> Time.Zone
+asia__chongqing _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 420 (Save 0), DateTime 1980 May 1 0 WallClock )
+            ]
+            (ZoneState 480 (Save 0))
 
 
 {-| `Asia/Colombo`
@@ -4335,6 +5253,27 @@ asia__gaza _ =
             , ( ZoneState 120 (Save 0), DateTime 2012 Jan 1 0 WallClock )
             ]
             (ZoneState 120 (Rules rules_Palestine))
+
+
+{-| `Asia/Hanoi`
+-}
+asia__hanoi : () -> Time.Zone
+asia__hanoi _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 420 (Save 0))
+
+
+{-| `Asia/Harbin`
+-}
+asia__harbin : () -> Time.Zone
+asia__harbin _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 510 (Save 0), DateTime 1980 May 1 0 WallClock )
+            ]
+            (ZoneState 480 (Save 0))
 
 
 {-| `Asia/Hebron`
@@ -4460,6 +5399,17 @@ asia__karachi _ =
             (ZoneState 300 (Rules rules_Pakistan))
 
 
+{-| `Asia/Kashgar`
+-}
+asia__kashgar : () -> Time.Zone
+asia__kashgar _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 300 (Save 0), DateTime 1980 May 1 0 WallClock )
+            ]
+            (ZoneState 480 (Save 0))
+
+
 {-| `Asia/Kathmandu`
 -}
 asia__kathmandu : () -> Time.Zone
@@ -4511,6 +5461,17 @@ asia__krasnoyarsk _ =
             (ZoneState 420 (Save 0))
 
 
+{-| `Asia/Kuala_Lumpur`
+-}
+asia__kuala_lumpur : () -> Time.Zone
+asia__kuala_lumpur _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 450 (Save 0), DateTime 1981 Dec 31 960 Universal )
+            ]
+            (ZoneState 480 (Save 0))
+
+
 {-| `Asia/Kuching`
 -}
 asia__kuching : () -> Time.Zone
@@ -4519,6 +5480,16 @@ asia__kuching _ =
         Zone
             []
             (ZoneState 480 (Save 0))
+
+
+{-| `Asia/Kuwait`
+-}
+asia__kuwait : () -> Time.Zone
+asia__kuwait _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 180 (Save 0))
 
 
 {-| `Asia/Macau`
@@ -4564,6 +5535,16 @@ asia__manila _ =
         Zone
             []
             (ZoneState 480 (Rules rules_Phil))
+
+
+{-| `Asia/Muscat`
+-}
+asia__muscat : () -> Time.Zone
+asia__muscat _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 240 (Save 0))
 
 
 {-| `Asia/Nicosia`
@@ -4636,6 +5617,16 @@ asia__oral _ =
             , ( ZoneState 240 (Rules rules_RussiaAsia), DateTime 2004 Oct 31 120 Standard )
             ]
             (ZoneState 300 (Save 0))
+
+
+{-| `Asia/Phnom_Penh`
+-}
+asia__phnom_penh : () -> Time.Zone
+asia__phnom_penh _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 420 (Save 0))
 
 
 {-| `Asia/Pontianak`
@@ -4844,6 +5835,16 @@ asia__tehran _ =
             (ZoneState 210 (Rules rules_Iran))
 
 
+{-| `Asia/Tel_Aviv`
+-}
+asia__tel_aviv : () -> Time.Zone
+asia__tel_aviv _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 120 (Save 0))
+
+
 {-| `Asia/Thimphu`
 -}
 asia__thimphu : () -> Time.Zone
@@ -4916,6 +5917,16 @@ asia__ust_nera _ =
             , ( ZoneState 660 (Save 0), DateTime 2014 Oct 26 120 Standard )
             ]
             (ZoneState 600 (Save 0))
+
+
+{-| `Asia/Vientiane`
+-}
+asia__vientiane : () -> Time.Zone
+asia__vientiane _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 420 (Save 0))
 
 
 {-| `Asia/Vladivostok`
@@ -5044,6 +6055,16 @@ atlantic__faroe _ =
             (ZoneState 0 (Rules rules_EU))
 
 
+{-| `Atlantic/Jan_Mayen`
+-}
+atlantic__jan_mayen : () -> Time.Zone
+atlantic__jan_mayen _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -60 (Save 0))
+
+
 {-| `Atlantic/Madeira`
 -}
 atlantic__madeira : () -> Time.Zone
@@ -5056,6 +6077,16 @@ atlantic__madeira _ =
             (ZoneState 0 (Rules rules_EU))
 
 
+{-| `Atlantic/Reykjavik`
+-}
+atlantic__reykjavik : () -> Time.Zone
+atlantic__reykjavik _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 0 (Save 0))
+
+
 {-| `Atlantic/South_Georgia`
 -}
 atlantic__south_georgia : () -> Time.Zone
@@ -5064,6 +6095,16 @@ atlantic__south_georgia _ =
         Zone
             []
             (ZoneState -120 (Save 0))
+
+
+{-| `Atlantic/St_Helena`
+-}
+atlantic__st_helena : () -> Time.Zone
+atlantic__st_helena _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 0 (Save 0))
 
 
 {-| `Atlantic/Stanley`
@@ -5111,6 +6152,16 @@ australia__broken_hill _ =
             , ( ZoneState 570 (Rules rules_AN), DateTime 2000 Jan 1 0 WallClock )
             ]
             (ZoneState 570 (Rules rules_AS))
+
+
+{-| `Australia/Currie`
+-}
+australia__currie : () -> Time.Zone
+australia__currie _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 600 (Save 0))
 
 
 {-| `Australia/Darwin`
@@ -5199,6 +6250,347 @@ australia__sydney _ =
             (ZoneState 600 (Rules rules_AN))
 
 
+{-| `CET`
+-}
+cet : () -> Time.Zone
+cet _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 60 (Save 0))
+
+
+{-| `CST6CDT`
+-}
+cst6cdt : () -> Time.Zone
+cst6cdt _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -360 (Save 0))
+
+
+{-| `EET`
+-}
+eet : () -> Time.Zone
+eet _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 120 (Save 0))
+
+
+{-| `EST`
+-}
+est : () -> Time.Zone
+est _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -300 (Save 0))
+
+
+{-| `EST5EDT`
+-}
+est5edt : () -> Time.Zone
+est5edt _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -300 (Save 0))
+
+
+{-| `Etc/GMT`
+-}
+etc__gmt : () -> Time.Zone
+etc__gmt _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 0 (Save 0))
+
+
+{-| `Etc/GMT+1`
+-}
+etc__gmt_plus1 : () -> Time.Zone
+etc__gmt_plus1 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -60 (Save 0))
+
+
+{-| `Etc/GMT+10`
+-}
+etc__gmt_plus10 : () -> Time.Zone
+etc__gmt_plus10 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -600 (Save 0))
+
+
+{-| `Etc/GMT+11`
+-}
+etc__gmt_plus11 : () -> Time.Zone
+etc__gmt_plus11 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -660 (Save 0))
+
+
+{-| `Etc/GMT+12`
+-}
+etc__gmt_plus12 : () -> Time.Zone
+etc__gmt_plus12 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -720 (Save 0))
+
+
+{-| `Etc/GMT+2`
+-}
+etc__gmt_plus2 : () -> Time.Zone
+etc__gmt_plus2 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -120 (Save 0))
+
+
+{-| `Etc/GMT+3`
+-}
+etc__gmt_plus3 : () -> Time.Zone
+etc__gmt_plus3 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -180 (Save 0))
+
+
+{-| `Etc/GMT+4`
+-}
+etc__gmt_plus4 : () -> Time.Zone
+etc__gmt_plus4 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -240 (Save 0))
+
+
+{-| `Etc/GMT+5`
+-}
+etc__gmt_plus5 : () -> Time.Zone
+etc__gmt_plus5 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -300 (Save 0))
+
+
+{-| `Etc/GMT+6`
+-}
+etc__gmt_plus6 : () -> Time.Zone
+etc__gmt_plus6 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -360 (Save 0))
+
+
+{-| `Etc/GMT+7`
+-}
+etc__gmt_plus7 : () -> Time.Zone
+etc__gmt_plus7 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -420 (Save 0))
+
+
+{-| `Etc/GMT+8`
+-}
+etc__gmt_plus8 : () -> Time.Zone
+etc__gmt_plus8 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -480 (Save 0))
+
+
+{-| `Etc/GMT+9`
+-}
+etc__gmt_plus9 : () -> Time.Zone
+etc__gmt_plus9 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -540 (Save 0))
+
+
+{-| `Etc/GMT-1`
+-}
+etc__gmt_1 : () -> Time.Zone
+etc__gmt_1 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 60 (Save 0))
+
+
+{-| `Etc/GMT-10`
+-}
+etc__gmt_10 : () -> Time.Zone
+etc__gmt_10 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 600 (Save 0))
+
+
+{-| `Etc/GMT-11`
+-}
+etc__gmt_11 : () -> Time.Zone
+etc__gmt_11 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 660 (Save 0))
+
+
+{-| `Etc/GMT-12`
+-}
+etc__gmt_12 : () -> Time.Zone
+etc__gmt_12 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 720 (Save 0))
+
+
+{-| `Etc/GMT-13`
+-}
+etc__gmt_13 : () -> Time.Zone
+etc__gmt_13 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 780 (Save 0))
+
+
+{-| `Etc/GMT-14`
+-}
+etc__gmt_14 : () -> Time.Zone
+etc__gmt_14 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 840 (Save 0))
+
+
+{-| `Etc/GMT-2`
+-}
+etc__gmt_2 : () -> Time.Zone
+etc__gmt_2 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 120 (Save 0))
+
+
+{-| `Etc/GMT-3`
+-}
+etc__gmt_3 : () -> Time.Zone
+etc__gmt_3 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 180 (Save 0))
+
+
+{-| `Etc/GMT-4`
+-}
+etc__gmt_4 : () -> Time.Zone
+etc__gmt_4 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 240 (Save 0))
+
+
+{-| `Etc/GMT-5`
+-}
+etc__gmt_5 : () -> Time.Zone
+etc__gmt_5 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 300 (Save 0))
+
+
+{-| `Etc/GMT-6`
+-}
+etc__gmt_6 : () -> Time.Zone
+etc__gmt_6 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 360 (Save 0))
+
+
+{-| `Etc/GMT-7`
+-}
+etc__gmt_7 : () -> Time.Zone
+etc__gmt_7 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 420 (Save 0))
+
+
+{-| `Etc/GMT-8`
+-}
+etc__gmt_8 : () -> Time.Zone
+etc__gmt_8 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 480 (Save 0))
+
+
+{-| `Etc/GMT-9`
+-}
+etc__gmt_9 : () -> Time.Zone
+etc__gmt_9 _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 540 (Save 0))
+
+
+{-| `Etc/UTC`
+-}
+etc__utc : () -> Time.Zone
+etc__utc _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 0 (Save 0))
+
+
+{-| `Europe/Amsterdam`
+-}
+europe__amsterdam : () -> Time.Zone
+europe__amsterdam _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 60 (Save 0), DateTime 1977 Jan 1 0 WallClock )
+            ]
+            (ZoneState 60 (Save 0))
+
+
 {-| `Europe/Andorra`
 -}
 europe__andorra : () -> Time.Zone
@@ -5235,6 +6627,18 @@ europe__athens _ =
             [ ( ZoneState 120 (Rules rules_Greece), DateTime 1981 Jan 1 0 WallClock )
             ]
             (ZoneState 120 (Rules rules_EU))
+
+
+{-| `Europe/Belfast`
+-}
+europe__belfast : () -> Time.Zone
+europe__belfast _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 60 (Save 0), DateTime 1971 Oct 31 120 Universal )
+            , ( ZoneState 0 (Save 0), DateTime 1996 Jan 1 0 WallClock )
+            ]
+            (ZoneState 0 (Save 0))
 
 
 {-| `Europe/Belgrade`
@@ -5308,6 +6712,17 @@ europe__chisinau _ =
             (ZoneState 120 (Rules rules_Moldova))
 
 
+{-| `Europe/Copenhagen`
+-}
+europe__copenhagen : () -> Time.Zone
+europe__copenhagen _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 60 (Save 0), DateTime 1980 Jan 1 0 WallClock )
+            ]
+            (ZoneState 60 (Save 0))
+
+
 {-| `Europe/Dublin`
 -}
 europe__dublin : () -> Time.Zone
@@ -5329,6 +6744,18 @@ europe__gibraltar _ =
             (ZoneState 60 (Rules rules_EU))
 
 
+{-| `Europe/Guernsey`
+-}
+europe__guernsey : () -> Time.Zone
+europe__guernsey _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 60 (Save 0), DateTime 1971 Oct 31 120 Universal )
+            , ( ZoneState 0 (Save 0), DateTime 1996 Jan 1 0 WallClock )
+            ]
+            (ZoneState 0 (Save 0))
+
+
 {-| `Europe/Helsinki`
 -}
 europe__helsinki : () -> Time.Zone
@@ -5338,6 +6765,18 @@ europe__helsinki _ =
             [ ( ZoneState 120 (Rules rules_Finland), DateTime 1983 Jan 1 0 WallClock )
             ]
             (ZoneState 120 (Rules rules_EU))
+
+
+{-| `Europe/Isle_of_Man`
+-}
+europe__isle_of_man : () -> Time.Zone
+europe__isle_of_man _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 60 (Save 0), DateTime 1971 Oct 31 120 Universal )
+            , ( ZoneState 0 (Save 0), DateTime 1996 Jan 1 0 WallClock )
+            ]
+            (ZoneState 0 (Save 0))
 
 
 {-| `Europe/Istanbul`
@@ -5358,6 +6797,18 @@ europe__istanbul _ =
             , ( ZoneState 120 (Rules rules_EU), DateTime 2016 Sep 7 0 WallClock )
             ]
             (ZoneState 180 (Save 0))
+
+
+{-| `Europe/Jersey`
+-}
+europe__jersey : () -> Time.Zone
+europe__jersey _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 60 (Save 0), DateTime 1971 Oct 31 120 Universal )
+            , ( ZoneState 0 (Save 0), DateTime 1996 Jan 1 0 WallClock )
+            ]
+            (ZoneState 0 (Save 0))
 
 
 {-| `Europe/Kaliningrad`
@@ -5415,6 +6866,17 @@ europe__lisbon _ =
             (ZoneState 0 (Rules rules_EU))
 
 
+{-| `Europe/Ljubljana`
+-}
+europe__ljubljana : () -> Time.Zone
+europe__ljubljana _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 60 (Save 0), DateTime 1982 Nov 27 0 WallClock )
+            ]
+            (ZoneState 60 (Save 0))
+
+
 {-| `Europe/London`
 -}
 europe__london : () -> Time.Zone
@@ -5425,6 +6887,17 @@ europe__london _ =
             , ( ZoneState 0 (Rules rules_GB_Eire), DateTime 1996 Jan 1 0 WallClock )
             ]
             (ZoneState 0 (Rules rules_EU))
+
+
+{-| `Europe/Luxembourg`
+-}
+europe__luxembourg : () -> Time.Zone
+europe__luxembourg _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 60 (Save 0), DateTime 1977 Jan 1 0 WallClock )
+            ]
+            (ZoneState 60 (Save 0))
 
 
 {-| `Europe/Madrid`
@@ -5463,6 +6936,17 @@ europe__minsk _ =
             (ZoneState 180 (Save 0))
 
 
+{-| `Europe/Monaco`
+-}
+europe__monaco : () -> Time.Zone
+europe__monaco _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 60 (Save 0), DateTime 1977 Jan 1 0 WallClock )
+            ]
+            (ZoneState 60 (Save 0))
+
+
 {-| `Europe/Moscow`
 -}
 europe__moscow : () -> Time.Zone
@@ -5475,6 +6959,17 @@ europe__moscow _ =
             , ( ZoneState 240 (Save 0), DateTime 2014 Oct 26 120 Standard )
             ]
             (ZoneState 180 (Save 0))
+
+
+{-| `Europe/Oslo`
+-}
+europe__oslo : () -> Time.Zone
+europe__oslo _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 60 (Save 0), DateTime 1980 Jan 1 0 WallClock )
+            ]
+            (ZoneState 60 (Save 0))
 
 
 {-| `Europe/Paris`
@@ -5541,6 +7036,17 @@ europe__samara _ =
             (ZoneState 240 (Save 0))
 
 
+{-| `Europe/Sarajevo`
+-}
+europe__sarajevo : () -> Time.Zone
+europe__sarajevo _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 60 (Save 0), DateTime 1982 Nov 27 0 WallClock )
+            ]
+            (ZoneState 60 (Save 0))
+
+
 {-| `Europe/Saratov`
 -}
 europe__saratov : () -> Time.Zone
@@ -5576,6 +7082,17 @@ europe__simferopol _ =
             (ZoneState 180 (Save 0))
 
 
+{-| `Europe/Skopje`
+-}
+europe__skopje : () -> Time.Zone
+europe__skopje _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 60 (Save 0), DateTime 1982 Nov 27 0 WallClock )
+            ]
+            (ZoneState 60 (Save 0))
+
+
 {-| `Europe/Sofia`
 -}
 europe__sofia : () -> Time.Zone
@@ -5588,6 +7105,17 @@ europe__sofia _ =
             , ( ZoneState 120 (Rules rules_E_Eur), DateTime 1997 Jan 1 0 WallClock )
             ]
             (ZoneState 120 (Rules rules_EU))
+
+
+{-| `Europe/Stockholm`
+-}
+europe__stockholm : () -> Time.Zone
+europe__stockholm _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 60 (Save 0), DateTime 1980 Jan 1 0 WallClock )
+            ]
+            (ZoneState 60 (Save 0))
 
 
 {-| `Europe/Tallinn`
@@ -5616,6 +7144,18 @@ europe__tirane _ =
             (ZoneState 60 (Rules rules_EU))
 
 
+{-| `Europe/Tiraspol`
+-}
+europe__tiraspol : () -> Time.Zone
+europe__tiraspol _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 180 (Save 0), DateTime 1991 Mar 31 120 WallClock )
+            , ( ZoneState 120 (Save 0), DateTime 1992 Jan 19 120 WallClock )
+            ]
+            (ZoneState 180 (Save 0))
+
+
 {-| `Europe/Ulyanovsk`
 -}
 europe__ulyanovsk : () -> Time.Zone
@@ -5630,6 +7170,32 @@ europe__ulyanovsk _ =
             , ( ZoneState 180 (Save 0), DateTime 2016 Mar 27 120 Standard )
             ]
             (ZoneState 240 (Save 0))
+
+
+{-| `Europe/Uzhgorod`
+-}
+europe__uzhgorod : () -> Time.Zone
+europe__uzhgorod _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 180 (Save 0), DateTime 1990 Jan 1 0 WallClock )
+            , ( ZoneState 180 (Save 0), DateTime 1990 Jul 1 120 WallClock )
+            , ( ZoneState 60 (Save 0), DateTime 1991 Mar 31 180 WallClock )
+            , ( ZoneState 120 (Save 0), DateTime 1992 Mar 20 0 WallClock )
+            , ( ZoneState 120 (Save 0), DateTime 1996 May 13 0 WallClock )
+            ]
+            (ZoneState 120 (Save 0))
+
+
+{-| `Europe/Vaduz`
+-}
+europe__vaduz : () -> Time.Zone
+europe__vaduz _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 60 (Save 0), DateTime 1981 Jan 1 0 WallClock )
+            ]
+            (ZoneState 60 (Save 0))
 
 
 {-| `Europe/Vienna`
@@ -5688,6 +7254,30 @@ europe__warsaw _ =
             (ZoneState 60 (Rules rules_EU))
 
 
+{-| `Europe/Zagreb`
+-}
+europe__zagreb : () -> Time.Zone
+europe__zagreb _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 60 (Save 0), DateTime 1982 Nov 27 0 WallClock )
+            ]
+            (ZoneState 60 (Save 0))
+
+
+{-| `Europe/Zaporozhye`
+-}
+europe__zaporozhye : () -> Time.Zone
+europe__zaporozhye _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 180 (Save 0), DateTime 1991 Mar 31 120 WallClock )
+            , ( ZoneState 120 (Save 0), DateTime 1992 Mar 20 0 WallClock )
+            , ( ZoneState 120 (Save 0), DateTime 1996 May 13 0 WallClock )
+            ]
+            (ZoneState 120 (Save 0))
+
+
 {-| `Europe/Zurich`
 -}
 europe__zurich : () -> Time.Zone
@@ -5699,6 +7289,26 @@ europe__zurich _ =
             (ZoneState 60 (Rules rules_EU))
 
 
+{-| `HST`
+-}
+hst : () -> Time.Zone
+hst _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -600 (Save 0))
+
+
+{-| `Indian/Antananarivo`
+-}
+indian__antananarivo : () -> Time.Zone
+indian__antananarivo _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 180 (Save 0))
+
+
 {-| `Indian/Chagos`
 -}
 indian__chagos : () -> Time.Zone
@@ -5708,6 +7318,56 @@ indian__chagos _ =
             [ ( ZoneState 300 (Save 0), DateTime 1996 Jan 1 0 WallClock )
             ]
             (ZoneState 360 (Save 0))
+
+
+{-| `Indian/Christmas`
+-}
+indian__christmas : () -> Time.Zone
+indian__christmas _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 420 (Save 0))
+
+
+{-| `Indian/Cocos`
+-}
+indian__cocos : () -> Time.Zone
+indian__cocos _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 390 (Save 0))
+
+
+{-| `Indian/Comoro`
+-}
+indian__comoro : () -> Time.Zone
+indian__comoro _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 180 (Save 0))
+
+
+{-| `Indian/Kerguelen`
+-}
+indian__kerguelen : () -> Time.Zone
+indian__kerguelen _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 300 (Save 0))
+
+
+{-| `Indian/Mahe`
+-}
+indian__mahe : () -> Time.Zone
+indian__mahe _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 240 (Save 0))
 
 
 {-| `Indian/Maldives`
@@ -5728,6 +7388,66 @@ indian__mauritius _ =
         Zone
             []
             (ZoneState 240 (Rules rules_Mauritius))
+
+
+{-| `Indian/Mayotte`
+-}
+indian__mayotte : () -> Time.Zone
+indian__mayotte _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 180 (Save 0))
+
+
+{-| `Indian/Reunion`
+-}
+indian__reunion : () -> Time.Zone
+indian__reunion _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 240 (Save 0))
+
+
+{-| `MET`
+-}
+met : () -> Time.Zone
+met _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 60 (Save 0))
+
+
+{-| `MST`
+-}
+mst : () -> Time.Zone
+mst _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -420 (Save 0))
+
+
+{-| `MST7MDT`
+-}
+mst7mdt : () -> Time.Zone
+mst7mdt _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -420 (Save 0))
+
+
+{-| `PST8PDT`
+-}
+pst8pdt : () -> Time.Zone
+pst8pdt _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -480 (Save 0))
 
 
 {-| `Pacific/Apia`
@@ -5772,6 +7492,16 @@ pacific__chatham _ =
             (ZoneState 765 (Rules rules_Chatham))
 
 
+{-| `Pacific/Chuuk`
+-}
+pacific__chuuk : () -> Time.Zone
+pacific__chuuk _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 600 (Save 0))
+
+
 {-| `Pacific/Easter`
 -}
 pacific__easter : () -> Time.Zone
@@ -5793,6 +7523,16 @@ pacific__efate _ =
             (ZoneState 660 (Rules rules_Vanuatu))
 
 
+{-| `Pacific/Enderbury`
+-}
+pacific__enderbury : () -> Time.Zone
+pacific__enderbury _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 0 (Save 0))
+
+
 {-| `Pacific/Fakaofo`
 -}
 pacific__fakaofo : () -> Time.Zone
@@ -5812,6 +7552,16 @@ pacific__fiji _ =
         Zone
             []
             (ZoneState 720 (Rules rules_Fiji))
+
+
+{-| `Pacific/Funafuti`
+-}
+pacific__funafuti : () -> Time.Zone
+pacific__funafuti _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 720 (Save 0))
 
 
 {-| `Pacific/Galapagos`
@@ -5866,6 +7616,16 @@ pacific__honolulu _ =
             (ZoneState -600 (Save 0))
 
 
+{-| `Pacific/Johnston`
+-}
+pacific__johnston : () -> Time.Zone
+pacific__johnston _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -600 (Save 0))
+
+
 {-| `Pacific/Kanton`
 -}
 pacific__kanton : () -> Time.Zone
@@ -5912,6 +7672,16 @@ pacific__kwajalein _ =
             (ZoneState 720 (Save 0))
 
 
+{-| `Pacific/Majuro`
+-}
+pacific__majuro : () -> Time.Zone
+pacific__majuro _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 720 (Save 0))
+
+
 {-| `Pacific/Marquesas`
 -}
 pacific__marquesas : () -> Time.Zone
@@ -5920,6 +7690,16 @@ pacific__marquesas _ =
         Zone
             []
             (ZoneState -570 (Save 0))
+
+
+{-| `Pacific/Midway`
+-}
+pacific__midway : () -> Time.Zone
+pacific__midway _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState -660 (Save 0))
 
 
 {-| `Pacific/Nauru`
@@ -5998,6 +7778,16 @@ pacific__pitcairn _ =
             (ZoneState -480 (Save 0))
 
 
+{-| `Pacific/Pohnpei`
+-}
+pacific__pohnpei : () -> Time.Zone
+pacific__pohnpei _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 660 (Save 0))
+
+
 {-| `Pacific/Port_Moresby`
 -}
 pacific__port_moresby : () -> Time.Zone
@@ -6017,6 +7807,17 @@ pacific__rarotonga _ =
             [ ( ZoneState -630 (Save 0), DateTime 1978 Nov 12 0 WallClock )
             ]
             (ZoneState -600 (Rules rules_Cook))
+
+
+{-| `Pacific/Saipan`
+-}
+pacific__saipan : () -> Time.Zone
+pacific__saipan _ =
+    fromSpecification <|
+        Zone
+            [ ( ZoneState 600 (Save 0), DateTime 2000 Dec 23 0 WallClock )
+            ]
+            (ZoneState 600 (Save 0))
 
 
 {-| `Pacific/Tahiti`
@@ -6048,6 +7849,36 @@ pacific__tongatapu _ =
             [ ( ZoneState 780 (Save 0), DateTime 1999 Jan 1 0 WallClock )
             ]
             (ZoneState 780 (Rules rules_Tonga))
+
+
+{-| `Pacific/Wake`
+-}
+pacific__wake : () -> Time.Zone
+pacific__wake _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 720 (Save 0))
+
+
+{-| `Pacific/Wallis`
+-}
+pacific__wallis : () -> Time.Zone
+pacific__wallis _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 720 (Save 0))
+
+
+{-| `WET`
+-}
+wet : () -> Time.Zone
+wet _ =
+    fromSpecification <|
+        Zone
+            []
+            (ZoneState 0 (Save 0))
 
 
 
@@ -7111,6 +8942,55 @@ eire =
     europe__dublin
 
 
+{-| `Etc/GMT+0` (alias of `Etc/GMT`)
+-}
+etc__gmt_plus0 : () -> Time.Zone
+etc__gmt_plus0 =
+    etc__gmt
+
+
+{-| `Etc/GMT-0` (alias of `Etc/GMT`)
+-}
+etc__gmt_0 : () -> Time.Zone
+etc__gmt_0 =
+    etc__gmt
+
+
+{-| `Etc/GMT0` (alias of `Etc/GMT`)
+-}
+etc__gmt0 : () -> Time.Zone
+etc__gmt0 =
+    etc__gmt
+
+
+{-| `Etc/Greenwich` (alias of `Etc/GMT`)
+-}
+etc__greenwich : () -> Time.Zone
+etc__greenwich =
+    etc__gmt
+
+
+{-| `Etc/UCT` (alias of `Etc/UTC`)
+-}
+etc__uct : () -> Time.Zone
+etc__uct =
+    etc__utc
+
+
+{-| `Etc/Universal` (alias of `Etc/UTC`)
+-}
+etc__universal : () -> Time.Zone
+etc__universal =
+    etc__utc
+
+
+{-| `Etc/Zulu` (alias of `Etc/UTC`)
+-}
+etc__zulu : () -> Time.Zone
+etc__zulu =
+    etc__utc
+
+
 {-| `Europe/Amsterdam` (alias of `Europe/Brussels`)
 -}
 europe__amsterdam : () -> Time.Zone
@@ -7305,6 +9185,41 @@ gb =
 gb_eire : () -> Time.Zone
 gb_eire =
     europe__london
+
+
+{-| `GMT` (alias of `Etc/GMT`)
+-}
+gmt : () -> Time.Zone
+gmt =
+    etc__gmt
+
+
+{-| `GMT+0` (alias of `Etc/GMT`)
+-}
+gmt_plus0 : () -> Time.Zone
+gmt_plus0 =
+    etc__gmt
+
+
+{-| `GMT-0` (alias of `Etc/GMT`)
+-}
+gmt_0 : () -> Time.Zone
+gmt_0 =
+    etc__gmt
+
+
+{-| `GMT0` (alias of `Etc/GMT`)
+-}
+gmt0 : () -> Time.Zone
+gmt0 =
+    etc__gmt
+
+
+{-| `Greenwich` (alias of `Etc/GMT`)
+-}
+greenwich : () -> Time.Zone
+greenwich =
+    etc__gmt
 
 
 {-| `HST` (alias of `Pacific/Honolulu`)
@@ -7643,6 +9558,13 @@ turkey =
     europe__istanbul
 
 
+{-| `UCT` (alias of `Etc/UTC`)
+-}
+uct : () -> Time.Zone
+uct =
+    etc__utc
+
+
 {-| `US/Alaska` (alias of `America/Anchorage`)
 -}
 us__alaska : () -> Time.Zone
@@ -7727,6 +9649,20 @@ us__samoa =
     pacific__pago_pago
 
 
+{-| `UTC` (alias of `Etc/UTC`)
+-}
+utc : () -> Time.Zone
+utc =
+    etc__utc
+
+
+{-| `Universal` (alias of `Etc/UTC`)
+-}
+universal : () -> Time.Zone
+universal =
+    etc__utc
+
+
 {-| `W-SU` (alias of `Europe/Moscow`)
 -}
 w_su : () -> Time.Zone
@@ -7739,3 +9675,10 @@ w_su =
 wet : () -> Time.Zone
 wet =
     europe__lisbon
+
+
+{-| `Zulu` (alias of `Etc/UTC`)
+-}
+zulu : () -> Time.Zone
+zulu =
+    etc__utc
