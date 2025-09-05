@@ -52,3 +52,7 @@ jobs:
         with:
           commit_message: "chore(release): ${{ steps.bump.outputs.version }}"
           tagging_message: "${{ steps.bump.outputs.version }}"
+      - name: Release
+        if: ${{ steps.build.outputs.is_new == 'true' }}
+        run: |
+          nix shell nixpkgs#elmPackages.elm -- bash -c 'echo y | elm publish'
