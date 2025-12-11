@@ -55,4 +55,4 @@ jobs:
       - name: Release
         if: ${{ steps.build.outputs.is_new == 'true' }}
         run: |
-          nix shell nixpkgs#elmPackages.elm -- bash -c 'echo y | elm publish'
+          nix shell nixpkgs#elmPackages.elm --command bash -c 'echo y | elm publish'
